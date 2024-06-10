@@ -1,0 +1,4 @@
+server2tfc/tfc
+*.cfg
+*.txt
+*.ini

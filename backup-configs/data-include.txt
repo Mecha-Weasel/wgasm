@@ -1,0 +1,6 @@
+weaselsscripts/config.txt
+weaselsscripts/data
+weaselsscripts/backup-configs
+weaselsscripts/cron
+weaselsscripts/webmin
+

@@ -1,0 +1,15 @@
+Table notes ...
+
+Table:	game-servers.tsv
+=====
+
+Field#	Field-Name    Type        Description
+------  ------------  ----------  -----------
+1	gameserverid  string      ID for game-server.
+2	gametypeid    string      ID for game-type for this game-server.
+3	portnumber    portnumber  Network port number for game-server.
+4	verbose       true/false  Enable/disable verbose script ouptput.
+5	stale         true/false  Enable/disable monitoring for 'stale' logging.
+6	threshold     numeric     Threshold for stale-log monitoring (in seconds).
+7	description   string      Plain-text game-server description.
+8	comment	      string      Larger string with HTML.

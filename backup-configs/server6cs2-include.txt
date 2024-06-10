@@ -1,0 +1,4 @@
+server6cs2/game/csgo
+*.cfg
+*.txt
+*.ini

@@ -1,0 +1,12 @@
+Table Notes ...
+
+Table:	game-stencils.tsv
+=====
+
+Field#	Field-Name       Type        Description
+------  ---------------  ----------  -----------
+1       gamestencilid    string      ID for game-stencil
+2       gametypeid       string      ID for game-type (HL1, TFC, CS1, CSS, CS2, etc.)
+3       stencilfilename  string      Filename of the game-stencils zip file.
+4       description      string      Plain-text game-stencil description.
+5       comment	         string      Larger string.

@@ -1,0 +1,83 @@
+#
+#	+---------------------------------------------------------------------------+
+#	| __          __                 _ _        _____          _       _        |
+#	| \ \        / /                | ( )      / ____|        (_)     | |       |
+#	|  \ \  /\  / /__  __ _ ___  ___| |/ ___  | (___  ___ _ __ _ _ __ | |_ ___  |
+#	|   \ \/  \/ / _ \/ _\ / __|/ _ \ | / __|  \___ \/ __|  __| |  _ \| __/ __| |
+#	|    \  /\  /  __/ (_| \__ \  __/ | \__ \  ____) | (__| | | | |_) | |_\__ \ |
+#	|     \/  \/ \___|\__,_|___/\___|_| |___/ |_____/ \___|_| |_| .__/ \__|___/ |
+#	|                                                           | |             |
+#	| Weasel's Dedicated Game-Server Management Scripts         |_|          v2 |
+#	+-------------------------------------+-------------------------------------+
+#	|    Weasel.SteamID.155@gMail.com     |   https://github.com/Mecha-Weasel   |
+#	+-------------------------------------+-------------------------------------+
+#	| Discord = https://discordapp.com/users/weasel.steamid.155                 |
+#	| Steam Profile = http://steamcommunity.com/profiles/76561197960266039      |
+#	+---------------------------------------------------------------------------+
+#
+#	Weasel's Dedicated Game-Server Management Scripts Configuration File
+#
+#	Notes:
+#	-----
+#
+#	This is NOT a "script" file, it is an plain-text configuration file.
+#	This file is intended to be edited with any plain-text editor.
+#	This might be "nano", or "vim", or any GUI text editor - even Notepad.
+#	Any lines starting with "#" are comments, and will be ignored.
+#	All OPTIONS (left of the "=") must be specified all lower-case.
+#	The VALUES (right of the "=") MAY allow mixed-case, depending on the option.
+#	Values may NOT have TABs, NEWLINEs, LINEFEEDs or CARRIAGE-RETURNs in them.
+#	Any values that have SPACEs in them, need DOUBLE-QUOTE marks (") around them.
+#		For example:
+#			steam_login="username password"
+#
+#	Per-Option Details:
+#	------------------
+#
+#	Option:                    Explanation:
+#	------                     -----------
+#	display_banner             Enable/disable banner display
+#	scripts_verbose            Enable/disable verbose output
+#	moron_detection            Prevent running things under root/sudo that should NOT be
+#	purge_temp_installs        Purge "exclude" installs
+#	autobackup_by_check        Automatically backup before "check" forces an update
+#	autoexclude_by_check       Automatically update "exclude" when "check" updates
+#	servers_install_folder     Default folder to branch game-server installs from
+#	logs_folder                Folder where scripts and 'GNU screen' will store logs
+#	temp_folder                Folder where that 7-zip will use as a working area
+#	tempinstall_folder         Folder where "exclude" process will put temp installs
+#	backup_folder	           Folder where "backup" scripts will store the backups
+#	stencils_folder	           Folder where "stencils" (pre-configs) are stored
+#	steamcmd_folder	           Folder where SteamCMD utility is installed
+#	backup_configs_folder	   Folder where "include" and "exclude" files are stored
+#	data_folder                Folder where data files / tables will be stored
+#	game_types_file            The name of the game-types tab-seperated-value file, relative to the "data" folder
+#	game_servers_file          The name of the game-servers tab-seperated-value file, relative to the "data" folder
+#	game_stencils_file         The name of the game-stencils tab-seperated-value file, relative to the "data" folder
+#	banner_file                The name file with the banner content to display, relative to the "data" folder
+#	steam_login                Default Steam credentials to use, enclose in quotes if not anonymous
+#
+#	Actual values to use start here ...
+#	-------------------------------
+#
+display_banner=true
+scripts_verbose=false
+moron_detection=true
+purge_temp_installs=true
+autobackup_by_check=true
+autoexclude_by_check=true
+servers_install_folder=$HOME
+logs_folder=$HOME/logs
+temp_folder=$HOME/temp
+tempinstall_folder=$HOME/temp/temp-install
+backup_folder=$HOME/backups
+stencils_folder=$HOME/stencils
+steamcmd_folder=$HOME/steamcmd
+backup_configs_folder=$SCRIPTS_FOLDER/backup-configs
+data_folder=$SCRIPTS_FOLDER/data
+game_types_file=game-types.tsv
+game_servers_file=game-servers.tsv
+game_stencils_file=game-stencils.tsv
+banner_file=banner.txt
+steam_login="anonymous"
+

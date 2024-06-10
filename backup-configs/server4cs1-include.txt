@@ -1,0 +1,4 @@
+server4cs1/cstrike
+*.cfg
+*.txt
+*.ini

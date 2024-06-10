@@ -1,0 +1,4 @@
+server0hl1/valve
+*.cfg
+*.txt
+*.ini

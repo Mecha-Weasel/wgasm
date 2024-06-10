@@ -1,0 +1,4 @@
+server1dmc/dmc
+*.cfg
+*.txt
+*.ini

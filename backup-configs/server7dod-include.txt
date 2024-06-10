@@ -1,0 +1,4 @@
+server7dod/dod
+*.cfg
+*.txt
+*.ini

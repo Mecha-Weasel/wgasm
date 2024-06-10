@@ -1,0 +1,4 @@
+server8dods/dod
+*.cfg
+*.txt
+*.ini

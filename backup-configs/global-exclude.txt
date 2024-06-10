@@ -1,0 +1,9 @@
+vpk
+*.vpk
+.dem
+*.dem
+'*.dem'
+.log
+*.log
+'*.log'
+log-archive.7z

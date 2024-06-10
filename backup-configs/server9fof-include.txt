@@ -1,0 +1,4 @@
+server9fof/fof
+*.cfg
+*.txt
+*.ini
