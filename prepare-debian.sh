@@ -412,7 +412,7 @@ if [[ $WEBMIN_CHECK == true ]]; then
 				;;
 			n|N|no|No|NO)
 				#
-				#	Do not install the "wdsms" system, but warn about creating it ...
+				#	Do not install "Custom Commands" for Webmin, but warn about creating it ...
 				#
 				MESSAGE="${ANSI_YELLOW}WARNING:${ANSI_OFF}\n";
 				MESSAGE+="${ANSI_WHITE}Okay, whatever - if you want to make your life harder than it needs to be!${ANSI_OFF}";
@@ -506,28 +506,28 @@ if [[ $TEST_USER_EXISTS == true ]]; then
 		if [[ $NIKE_MODE == true ]]; then
 				PROMPT_INPUT="nike";
 			else
-				read -p "Would you like to pre-download the latest \"wdsms\" installation script (install-wdsms.sh) under the \"game-servers\" user now? (y/n)" PROMPT_INPUT;
+				read -p "Would you like to pre-download the latest \"WDSMS\" installation script (install-wdsms.sh) under the \"game-servers\" user now? (y/n)" PROMPT_INPUT;
 		fi;
 		case $PROMPT_INPUT in
 			y|Y|yes|Yes|YES|nike)
 				#
 				#	Create the game-servers user ...
 				#
-				echo "Downloading the \"wdsms\" installation script (install-wdsms.sh) under the \"game-servers\" user ...";
+				echo "Downloading the \"WDSMS\" installation script (install-wdsms.sh) under the \"game-servers\" user ...";
 				DOWNLOAD_COMMAND="wget -O install-wdsms.sh https://github.com/Mecha-Weasel/wdsms/raw/main/install-wdsms.sh";
 				SUDO_DOWNLOAD_COMMAND="sudo -i -u game-servers $DOWNLOAD_COMMAND";
 				{ $SUDO_DOWNLOAD_COMMAND; } && { TEST_ERROR_CHECK=false; } || { TEST_ERROR_CHECK=true; };
 				if [[ $TEST_ERROR_CHECK == true ]]; then
 						TEST_USER_EXISTS=false;
 						MESSAGE="${ANSI_REDLT}ERROR:${ANSI_OFF}\n";
-						MESSAGE+="${ANSI_WHITE}There was a problem downloading the \"wdsms\" installation script under the \"${ANSI_YELLOW}game-servers${ANSI_WHITE}\" user!${ANSI_OFF}\n";
+						MESSAGE+="${ANSI_WHITE}There was a problem downloading the \"WDSMS\" installation script under the \"${ANSI_YELLOW}game-servers${ANSI_WHITE}\" user!${ANSI_OFF}\n";
 						echo -e "\n$MESSAGE\n";
 						exit 1;
 					else
 						TEST_USER_EXISTS=true;
 						MESSAGE="${ANSI_GREENLT}PASSED:${ANSI_OFF}\n";
-						MESSAGE+="${ANSI_WHITE}The \"wdsms\" installation script (install-wdsms.sh) should now be pre-downloaded under the \"${ANSI_YELLOW}game-servers${ANSI_WHITE}\" user.${ANSI_OFF}\n";
-						MESSAGE+="${ANSI_WHITE}To install the \"wdsms\" system:${ANSI_OFF}\n";
+						MESSAGE+="${ANSI_WHITE}The \"WDSMS\" installation script (install-wdsms.sh) should now be pre-downloaded under the \"${ANSI_YELLOW}game-servers${ANSI_WHITE}\" user.${ANSI_OFF}\n";
+						MESSAGE+="${ANSI_WHITE}To install the \"WDSMS\" system:${ANSI_OFF}\n";
 						MESSAGE+="${ANSI_WHITE}1) Login as \"${ANSI_YELLOW}game-servers${ANSI_WHITE}\" user.${ANSI_OFF}\n";
 						MESSAGE+="${ANSI_WHITE}2) Mark the ${ANSI_YELLOW}install-wdsms.sh${ANSI_WHITE} file as executable (using the command: \"chmod +x ~/install-wdsms.sh\").${ANSI_OFF}\n";
 						MESSAGE+="${ANSI_WHITE}3) Run the ${ANSI_YELLOW}install-wdsms.sh${ANSI_WHITE} script (using the command: \"~/install-wdsms.sh\").${ANSI_OFF}";
@@ -541,7 +541,7 @@ if [[ $TEST_USER_EXISTS == true ]]; then
 				#
 				MESSAGE="${ANSI_YELLOW}WARNING:${ANSI_OFF}\n";
 				MESSAGE+="${ANSI_WHITE}Okay, whatever - just remember to install it later yourself!${ANSI_OFF}\n";
-				MESSAGE+="Remember when installing the \"wdsms\" system, be sure to be logged-in as the \"${ANSI_YELLOW}game-servers${ANSI_WHITE}\" user!${ANSI_OFF}";
+				MESSAGE+="Remember when installing the \"WDSMS\" system, be sure to be logged-in as the \"${ANSI_YELLOW}game-servers${ANSI_WHITE}\" user!${ANSI_OFF}";
 				echo -e "\n$MESSAGE\n";
 				;;
 			*)
@@ -559,7 +559,7 @@ if [[ $TEST_USER_EXISTS == true ]]; then
 		#	Skip installing the "wdsms" system if the game-servers user does not exist ...
 		#
 		MESSAGE="${ANSI_GREENLT}Update:${ANSI_OFF}\n";
-		MESSAGE+="Since \"game-servers\" does not exist, skipping offering to install the \"wdsms\" system.";
+		MESSAGE+="Since \"game-servers\" does not exist, skipping offering to install the \"WDSMS\" system.";
 		echo -e "\n$MESSAGE\n";
 fi;
 #
@@ -717,7 +717,7 @@ if [ $WEBMIN_CHECK == true -a $TEST_USER_EXISTS == true ]; then
 				;;
 			n|N|no|No|NO)
 				#
-				#	Do not install the Webmin, but warn about creating it ...
+				#	Do not setup user for Webmin, but warn about creating it ...
 				#
 				MESSAGE="${ANSI_YELLOW}WARNING:${ANSI_OFF}\n";
 				MESSAGE+="${ANSI_WHITE}Okay, whatever - if you want to make your life harder than it needs to be!${ANSI_OFF}\n";
