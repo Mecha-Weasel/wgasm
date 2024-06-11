@@ -186,6 +186,8 @@ echo -e "Stats for 'temp-git' content:       $(tree $HOME/temp/temp-git | tail -
 rm -Rf $HOME/temp/temp-git/.git 2>&1 > /dev/null;
 cp -Rf $HOME/temp/temp-git/* $HOME/wdsms/ 2>&1 > /dev/null;
 rm -Rf $HOME/temp/temp-git 2>&1 > /dev/null;
+chmod +x $HOME/wdsms/*.sh;
+chmod +x $HOME/wdsms/cron/*.sh;
 echo -e "Size of 'wdsms' folder:    $(du -h -s $HOME/wdsms;)";
 echo -e "Stats for 'wdsms' folder:  $(tree $HOME/wdsms | tail -n 1)";
 #
@@ -217,7 +219,7 @@ case $PROMPT_INPUT in
 		echo -e "";
 		echo -e "Running the SteamCMD installation script ...";
 		cd $HOME/wdsms;
-		chmod +x install-steamcmd.sh;
+		#chmod +x install-steamcmd.sh;
 		./install-steamcmd.sh;
 		if [[ "$?" -gt 0 ]]; then
 			TEST_ERROR_CHECK=true;
@@ -272,7 +274,7 @@ case $PROMPT_INPUT in
 		echo -e "";
 		echo -e "Running the Stencils installation script ...";
 		cd $HOME/wdsms;
-		chmod +x install-stencils.sh;
+		#chmod +x install-stencils.sh;
 		./install-stencils.sh;
 		if [[ "$?" -gt 0 ]]; then
 			TEST_ERROR_CHECK=true;
