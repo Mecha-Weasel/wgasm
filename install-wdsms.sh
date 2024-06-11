@@ -217,6 +217,7 @@ case $PROMPT_INPUT in
 		echo -e "";
 		echo -e "Running the SteamCMD installation script ...";
 		cd $HOME/wdsms;
+		chmod +x install-steamcmd.sh;
 		./install-steamcmd.sh;
 		if [[ "$?" -gt 0 ]]; then
 			TEST_ERROR_CHECK=true;
