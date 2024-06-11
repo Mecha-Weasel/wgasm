@@ -619,6 +619,26 @@ if [ $WEBMIN_CHECK == true -a $TEST_USER_EXISTS == true ]; then
 				WEBMIN_ACL_ENTRY+=" uthentic-theme";
 				echo -e "$WEBMIN_ACL_ENTRY" >> $WEBMIN_ACL_FILE;
 				#
+				#		Create webmin/game-servers.acl file ...
+				#
+				WEBMIN_GAMESERVERS_FILE="$WEBMIN_FOLDER/game-servers.acl";
+				WEBMIN_GAMESERVERS_ENTRY="gedit2=";
+				WEBMIN_GAMESERVERS_ENTRY+="nodot=0";
+				WEBMIN_GAMESERVERS_ENTRY+="webminsearch=0";
+				WEBMIN_GAMESERVERS_ENTRY+="readonly=0";
+				WEBMIN_GAMESERVERS_ENTRY+="fileunix=game-servers";
+				WEBMIN_GAMESERVERS_ENTRY+="uedit=";
+				WEBMIN_GAMESERVERS_ENTRY+="uedit_mode=0";
+				WEBMIN_GAMESERVERS_ENTRY+="rpc=0";
+				WEBMIN_GAMESERVERS_ENTRY+="negative=1";
+				WEBMIN_GAMESERVERS_ENTRY+="gedit_mode=0";
+				WEBMIN_GAMESERVERS_ENTRY+="gedit=";
+				WEBMIN_GAMESERVERS_ENTRY+="feedback=0";
+				WEBMIN_GAMESERVERS_ENTRY+="uedit2=";
+				WEBMIN_GAMESERVERS_ENTRY+="root=";
+				WEBMIN_GAMESERVERS_ENTRY+="otherdirs=";
+				echo "$WEBMIN_GAMESERVERS_ENTRY" > $WEBMIN_GAMESERVERS_FILE;
+				#
 				#		Create webmin/xterm/game-servers.acl file ...
 				#
 				WEBMIN_XTERM_FILE="$WEBMIN_FOLDER/xterm/game-servers.acl";
