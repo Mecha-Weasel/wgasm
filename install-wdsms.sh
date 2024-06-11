@@ -272,6 +272,7 @@ case $PROMPT_INPUT in
 		echo -e "";
 		echo -e "Running the Stencils installation script ...";
 		cd $HOME/wdsms;
+		chmod +x install-stencils.sh;
 		./install-stencils.sh;
 		if [[ "$?" -gt 0 ]]; then
 			TEST_ERROR_CHECK=true;
