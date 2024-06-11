@@ -1,10 +1,10 @@
 #!/bin/bash
 #
 #	----------------------------------------------------------------------------
-#	Script to install WDSMS ...
+#	Script to update OS (Debian) packages required for these scripts
 #	============================================================================
 #	Created:       2024-05-31, by Weasel.SteamID.155@gMail.com
-#	Last modified: 2024-06-10, by Weasel.SteamID.155@gMail.com
+#	Last modified: 2024-06-05, by Weasel.SteamID.155@gMail.com
 #	----------------------------------------------------------------------------
 #	__        ___    ____  _   _ ___ _   _  ____
 #	\ \      / / \  |  _ \| \ | |_ _| \ | |/ ___|_
@@ -12,7 +12,7 @@
 #	  \ V  V / ___ \|  _ <| |\  || || |\  | |_| |_
 #	   \_/\_/_/   \_\_| \_\_| \_|___|_| \_|\____(_)
 #
-#	NOTE:  This script and most scripts of the "wdsms" project,
+#	NOTE:  This script and most scripts of the "wgasm" project,
 #	----   should NOT be run under the "root" Linux user, or any Linux
 #	       user with similar 'sudo' privileges!  Instead, they should be
 #	       run under some other "un-privileged" user.  All the examples
@@ -176,20 +176,18 @@ cd $HOME 2> /dev/null > /dev/null;
 mkdir $HOME/temp 2> /dev/null > /dev/null;
 rm -Rf $HOME/temp/temp-git 2> /dev/null > /dev/null;
 mkdir $HOME/temp/temp-git 2> /dev/null > /dev/null;
-mkdir $HOME/wdsms 2> /dev/null > /dev/null;
-git clone https://github.com/Mecha-Weasel/wdsms temp/temp-git;
+mkdir $HOME/wgasm 2> /dev/null > /dev/null;
+git clone https://github.com/Mecha-Weasel/wgasm temp/temp-git;
 if [[ "$?" -gt 0 ]]; then
 	TEST_ERROR_CHECK=true;
 fi;
 echo -e "Size of 'temp-git' content:         $(du -h -s $HOME/temp/temp-git;)";
 echo -e "Stats for 'temp-git' content:       $(tree $HOME/temp/temp-git | tail -n 1)";
 rm -Rf $HOME/temp/temp-git/.git 2>&1 > /dev/null;
-cp -Rf $HOME/temp/temp-git/* $HOME/wdsms/ 2>&1 > /dev/null;
+cp -Rf $HOME/temp/temp-git/* $HOME/wgasm/ 2>&1 > /dev/null;
 rm -Rf $HOME/temp/temp-git 2>&1 > /dev/null;
-chmod +x $HOME/wdsms/*.sh;
-chmod +x $HOME/wdsms/cron/*.sh;
-echo -e "Size of 'wdsms' folder:    $(du -h -s $HOME/wdsms;)";
-echo -e "Stats for 'wdsms' folder:  $(tree $HOME/wdsms | tail -n 1)";
+echo -e "Size of 'wgasm' folder:    $(du -h -s $HOME/wgasm;)";
+echo -e "Stats for 'wgasm' folder:  $(tree $HOME/wgasm | tail -n 1)";
 #
 #	If any of checks failed, display an error messsage ...
 #
@@ -218,8 +216,7 @@ case $PROMPT_INPUT in
 		#
 		echo -e "";
 		echo -e "Running the SteamCMD installation script ...";
-		cd $HOME/wdsms;
-		#chmod +x install-steamcmd.sh;
+		cd $HOME/wgasm;
 		./install-steamcmd.sh;
 		if [[ "$?" -gt 0 ]]; then
 			TEST_ERROR_CHECK=true;
@@ -232,7 +229,7 @@ case $PROMPT_INPUT in
 		MESSAGE="${ANSI_YELLOW}WARNING:${ANSI_OFF}\n";
 		MESSAGE+="${ANSI_WHITE}Okay, whatever - just remember to install it later yourself! Remember that:${ANSI_OFF}\n";
 		MESSAGE+="${ANSI_WHITE}1) SteamCMD is expected to be in ${ANSI_YELLOW}$HOME/steamcmd${ANSI_WHITE} by default.${ANSI_OFF}\n";
-		MESSAGE+="${ANSI_WHITE}2) You can override that with a setting in the ${ANSI_YELLOW}$HOME/wdsms/config.txt${ANSI_WHITE} file.${ANSI_OFF}";
+		MESSAGE+="${ANSI_WHITE}2) You can override that with a setting in the ${ANSI_YELLOW}$HOME/wgasm/config.txt${ANSI_WHITE} file.${ANSI_OFF}";
 		echo -e "\n$MESSAGE\n";
 		;;
 	*)
@@ -273,8 +270,7 @@ case $PROMPT_INPUT in
 		#
 		echo -e "";
 		echo -e "Running the Stencils installation script ...";
-		cd $HOME/wdsms;
-		#chmod +x install-stencils.sh;
+		cd $HOME/wgasm;
 		./install-stencils.sh;
 		if [[ "$?" -gt 0 ]]; then
 			TEST_ERROR_CHECK=true;
@@ -287,7 +283,7 @@ case $PROMPT_INPUT in
 		MESSAGE="${ANSI_YELLOW}WARNING:${ANSI_OFF}\n";
 		MESSAGE+="${ANSI_WHITE}Okay, whatever - just remember to install it later yourself! Remember that:\n${ANSI_OFF}";
 		MESSAGE+="${ANSI_WHITE}1) Stencils are expected to be in ${ANSI_YELLOW}$HOME/stencils${ANSI_WHITE} by default.${ANSI_OFF}\n";
-		MESSAGE+="${ANSI_WHITE}2) You can override that with a setting in the ${ANSI_YELLOW}$HOME/wdsms/config.txt${ANSI_WHITE} file.${ANSI_OFF}";
+		MESSAGE+="${ANSI_WHITE}2) You can override that with a setting in the ${ANSI_YELLOW}$HOME/wgasm/config.txt${ANSI_WHITE} file.${ANSI_OFF}";
 		echo -e "\n$MESSAGE\n";
 		;;
 	*)

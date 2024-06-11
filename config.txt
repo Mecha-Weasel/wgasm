@@ -15,7 +15,7 @@
 #	| Steam Profile = http://steamcommunity.com/profiles/76561197960266039      |
 #	+---------------------------------------------------------------------------+
 #
-#	Weasels Dedicated (Game) Server Management System (WDSMS) Configuration File
+#	Weasels Dedicated (Game) Server Management System (wgasm) Configuration File
 #
 #	Notes:
 #	-----

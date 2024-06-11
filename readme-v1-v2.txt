@@ -44,7 +44,7 @@ Several scripts are provided strictly for initial setup purposes, and to not
 perform any direct action on the game-servers themselves.  These include:
 
 * prepare-debian.sh          Run as "root", prepares OS for installation.
-* install-wdsms.sh  Run as "game-servers", installs the system.
+* install-wgasm.sh  Run as "game-servers", installs the system.
 * install-steamcmd.sh        Run as "game-servers", installs SteamCMD.
 * install-stencils.sh        Run as "game-servers", installs Stencils.
 
@@ -73,7 +73,7 @@ The "Prepare" script (prepare-debian.sh):
 	* Offer to pre-download the "Install" folder into "game-servers".
 	* Offer to setup the "game-servers" Linux user as a Webmin user.
 
-The main "Install" script (install-wdsms.sh):
+The main "Install" script (install-wgasm.sh):
 
 	The "Install" script should be run under a completely unprivileged
 	Linux user - that does NOT have any admin privileges using "sudo" or
@@ -84,7 +84,7 @@ The main "Install" script (install-wdsms.sh):
 	to assuming "yes" to all interactive prompts.  This feature is known
 	as "Nike Mode" or "Just Do It!".  The parameter is used like this:
 
-		./install-wdsms.sh --nike;
+		./install-wgasm.sh --nike;
 
 	The "Install" script will perform several functions automating as much
 	of the process as possible.  These functions include:
@@ -126,7 +126,7 @@ The "Stencils" install script (install-stencils.sh):
 | New default scripts location:                                               |
 +-----------------------------------------------------------------------------+
 
-Changed the default installation folder is "$HOME\wdsms" folder.  This
+Changed the default installation folder is "$HOME\wgasm" folder.  This
 should avoid conflicting with any other scripting projects that the author (or
 the user) might be working-with.
 
@@ -200,12 +200,12 @@ The default values included in the configuration file (config.txt) are:
 	steam_login="anonymous"
 
 +-----------------------------------------------------------------------------+
-| Consequences of changing the default SCRIPTS location (~/wdsms):   |
+| Consequences of changing the default SCRIPTS location (~/wgasm):   |
 +-----------------------------------------------------------------------------+
 
-The default location for the scripts would be the "wdsms" folder
+The default location for the scripts would be the "wgasm" folder
 directly inside the Linux user-users "home-directory".  This is typically
-described equally as either "$HOME/wdsms/" or "~/wdsms/" -
+described equally as either "$HOME/wgasm/" or "~/wgasm/" -
 depending on the format required.
 
 If you want to place the scripts in some other location, there are several
@@ -325,7 +325,7 @@ the fields, it is more restrictive - such as numeric, or all alpha-numeric,
 or even all lower-case alpha-numeric, etc.
 
 +-----------------------------------------------------------------------------+
-| The "game-types" table (wdsms/data/game-types.tsv):                |
+| The "game-types" table (wgasm/data/game-types.tsv):                |
 +-----------------------------------------------------------------------------+
 
 The game-types table, contains information about each game-type that the
@@ -488,7 +488,7 @@ to be usabled with these scripts, currently includes:
 	* SDK Base 2013 - Untested. Template for installing various "mods" on top of.
 
 +-----------------------------------------------------------------------------+
-| The "game-servers" table (wdsms/data/game-servers.tsv):            |
+| The "game-servers" table (wgasm/data/game-servers.tsv):            |
 +-----------------------------------------------------------------------------+
 
 The game-servers table, contains information about each game-server that will
@@ -548,7 +548,7 @@ Field	Field-Name    Format/Restrictions
 8       comment       Plain text, possibly HTML.
 
 +-----------------------------------------------------------------------------+
-| The "game-stencils" table (wdsms/data/game-stencils.tsv):          |
+| The "game-stencils" table (wgasm/data/game-stencils.tsv):          |
 +-----------------------------------------------------------------------------+
 
 The game-stencils table, contains information about each game-stencil that is

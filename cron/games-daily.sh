@@ -27,29 +27,29 @@
 #
 #		Backup scripts ...
 #
-$HOME/wdsms/game-server-backup.sh wdsms;
+$HOME/wgasm/game-server-backup.sh wgasm;
 #
 #		Backup just data seperatedly also (config.txt, data folder, backup-configs, etc.) ...
 #
-$HOME/wdsms/game-server-backup.sh data;
+$HOME/wgasm/game-server-backup.sh data;
 #
 #		Restart various game-servers ...
 #
-#$HOME/wdsms/game-server-start.sh server0hl1;  # Uncomment the BEGINNING of this line to enable restart of this server.
-#$HOME/wdsms/game-server-start.sh server1dmc;  # Uncomment the BEGINNING of this line to enable restart of this server.
-#$HOME/wdsms/game-server-start.sh server2tfc;  # Uncomment the BEGINNING of this line to enable restart of this server.
-#$HOME/wdsms/game-server-start.sh server3tf2;  # Uncomment the BEGINNING of this line to enable restart of this server.
-#$HOME/wdsms/game-server-start.sh server4cs1;  # Uncomment the BEGINNING of this line to enable restart of this server.
-#$HOME/wdsms/game-server-start.sh server5css;  # Uncomment the BEGINNING of this line to enable restart of this server.
-#$HOME/wdsms/game-server-start.sh server6cs2;  # Uncomment the BEGINNING of this line to enable restart of this server.
-#$HOME/wdsms/game-server-start.sh server7dod;  # Uncomment the BEGINNING of this line to enable restart of this server.
-#$HOME/wdsms/game-server-start.sh server8dods; # Uncomment the BEGINNING of this line to enable restart of this server.
-#$HOME/wdsms/game-server-start.sh server9fof;  # Uncomment the BEGINNING of this line to enable restart of this server.
+#$HOME/wgasm/game-server-start.sh server0hl1;  # Uncomment the BEGINNING of this line to enable restart of this server.
+#$HOME/wgasm/game-server-start.sh server1dmc;  # Uncomment the BEGINNING of this line to enable restart of this server.
+#$HOME/wgasm/game-server-start.sh server2tfc;  # Uncomment the BEGINNING of this line to enable restart of this server.
+#$HOME/wgasm/game-server-start.sh server3tf2;  # Uncomment the BEGINNING of this line to enable restart of this server.
+#$HOME/wgasm/game-server-start.sh server4cs1;  # Uncomment the BEGINNING of this line to enable restart of this server.
+#$HOME/wgasm/game-server-start.sh server5css;  # Uncomment the BEGINNING of this line to enable restart of this server.
+#$HOME/wgasm/game-server-start.sh server6cs2;  # Uncomment the BEGINNING of this line to enable restart of this server.
+#$HOME/wgasm/game-server-start.sh server7dod;  # Uncomment the BEGINNING of this line to enable restart of this server.
+#$HOME/wgasm/game-server-start.sh server8dods; # Uncomment the BEGINNING of this line to enable restart of this server.
+#$HOME/wgasm/game-server-start.sh server9fof;  # Uncomment the BEGINNING of this line to enable restart of this server.
 #
 #		Log running game-server processes ...
 #
-$HOME/wdsms/list-running.sh;
-$HOME/wdsms/list-running.sh; >> "$SCRIPT_LOG_FILE";
+$HOME/wgasm/list-running.sh;
+$HOME/wgasm/list-running.sh; >> "$SCRIPT_LOG_FILE";
 #
 #	    //////////////////////////////////////////
 #	... DAILY maintenance stuff ends before here.
@@ -57,7 +57,7 @@ $HOME/wdsms/list-running.sh; >> "$SCRIPT_LOG_FILE";
 #
 #	Display end of stuff ...
 #
-source $HOME/wdsms/include/include-outputend.inc;
+source $HOME/wgasm/include/include-outputend.inc;
 #
 #	... thats all folks!
 #

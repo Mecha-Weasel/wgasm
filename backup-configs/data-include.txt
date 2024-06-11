@@ -1,6 +1,6 @@
-wdsms/config.txt
-wdsms/data
-wdsms/backup-configs
-wdsms/cron
-wdsms/webmin
+wgasm/config.txt
+wgasm/data
+wgasm/backup-configs
+wgasm/cron
+wgasm/webmin
 

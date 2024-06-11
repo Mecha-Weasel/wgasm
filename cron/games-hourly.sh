@@ -27,21 +27,21 @@
 #
 #		Check game-servers for unapplied updates ....
 #
-#$HOME/wdsms/game-server-check.sh server0hl1;  # Uncomment the BEGINNING of this line to enable check of this server.
-#$HOME/wdsms/game-server-check.sh server1dmc;  # Uncomment the BEGINNING of this line to enable check of this server.
-#$HOME/wdsms/game-server-check.sh server2tfc;  # Uncomment the BEGINNING of this line to enable check of this server.
-#$HOME/wdsms/game-server-check.sh server3tf2;  # Uncomment the BEGINNING of this line to enable check of this server.
-#$HOME/wdsms/game-server-check.sh server4cs1;  # Uncomment the BEGINNING of this line to enable check of this server.
-#$HOME/wdsms/game-server-check.sh server5css;  # Uncomment the BEGINNING of this line to enable check of this server.
-#$HOME/wdsms/game-server-check.sh server6cs2;  # Uncomment the BEGINNING of this line to enable check of this server.
-#$HOME/wdsms/game-server-check.sh server7dod;  # Uncomment the BEGINNING of this line to enable check of this server.
-#$HOME/wdsms/game-server-check.sh server8dods; # Uncomment the BEGINNING of this line to enable check of this server.
-#$HOME/wdsms/game-server-check.sh server9fof;  # Uncomment the BEGINNING of this line to enable check of this server.
+#$HOME/wgasm/game-server-check.sh server0hl1;  # Uncomment the BEGINNING of this line to enable check of this server.
+#$HOME/wgasm/game-server-check.sh server1dmc;  # Uncomment the BEGINNING of this line to enable check of this server.
+#$HOME/wgasm/game-server-check.sh server2tfc;  # Uncomment the BEGINNING of this line to enable check of this server.
+#$HOME/wgasm/game-server-check.sh server3tf2;  # Uncomment the BEGINNING of this line to enable check of this server.
+#$HOME/wgasm/game-server-check.sh server4cs1;  # Uncomment the BEGINNING of this line to enable check of this server.
+#$HOME/wgasm/game-server-check.sh server5css;  # Uncomment the BEGINNING of this line to enable check of this server.
+#$HOME/wgasm/game-server-check.sh server6cs2;  # Uncomment the BEGINNING of this line to enable check of this server.
+#$HOME/wgasm/game-server-check.sh server7dod;  # Uncomment the BEGINNING of this line to enable check of this server.
+#$HOME/wgasm/game-server-check.sh server8dods; # Uncomment the BEGINNING of this line to enable check of this server.
+#$HOME/wgasm/game-server-check.sh server9fof;  # Uncomment the BEGINNING of this line to enable check of this server.
 #
 #		Log running game-server processes ...
 #
-$HOME/wdsms/list-running.sh;
-$HOME/wdsms/list-running.sh; >> "$SCRIPT_LOG_FILE";
+$HOME/wgasm/list-running.sh;
+$HOME/wgasm/list-running.sh; >> "$SCRIPT_LOG_FILE";
 #
 #	    //////////////////////////////////////////
 #	... HOURLY maintenance stuff ends before here.
