@@ -1,22 +1,21 @@
-+----------------------------------------------------------------------+
-| Weasel's Game-Administrator / Server-Manager (wGASM), for Linux - v2 |
-|  __        __                  _ _        ____    _    ____  __  __  |
-|  \ \      / /__  __ _ ___  ___| ( )___   / ___|  / \  / ___||  \/  | |
-|   \ \ /\ / / _ \/ _` / __|/ _ \ |// __| | |  _  / _ \ \___ \| |\/| | |
-|    \ V  V /  __/ (_| \__ \  __/ | \__ \ | |_| |/ ___ \ ___) | |  | | |
-|     \_/\_/ \___|\__,_|___/\___|_| |___/  \____/_/   \_\____/|_|  |_| |
-+----------------------------------------------------------------------+
-| DGitHub Repo's https://github.com/Mecha-Weasel                       |
-| DE-Mail        Weasel.SteamID.155@gMail.com                          |
-| DDiscord       https://discordapp.com/users/weasel.steamid.155       |
-| DSteam Profile https://steamcommunity.com/id/Weasel/                 |
-| DSteam (perm)  https://steamcommunity.com/profiles/76561197960266039 |
-+----------------------------------------------------------------------+
++-----------------------------------------------------------------------------+
+| Weasel's Game-Administrator / Server-Manager (wGASM), for Linux - Version 2 |
+| __        __                  _ _          ____    _        ______  __  __  |
+| \ \      / /__  __ _ ___  ___| ( )___     / ___|  / \      / / ___||  \/  | |
+|  \ \ /\ / / _ \/ _` / __|/ _ \ |// __|   | |  _  / _ \    / /\___ \| |\/| | |
+|   \ V  V /  __/ (_| \__ \  __/ | \__ \   | |_| |/ ___ \  / /  ___) | |  | | |
+|    \_/\_/ \___|\__,_|___/\___|_| |___/    \____/_/   \_\/_/  |____/|_|  |_| |
++-----------------------------------------------------------------------------+
+| GitHub Repo's = https://github.com/Mecha-Weasel                             |
+| E-Mail        = Weasel.SteamID.155@gMail.com                                |
+| Discord       = https://discordapp.com/users/weasel.steamid.155             |
+| Steam Profile = https://steamcommunity.com/id/Weasel/                       |
+| Steam (perm)  = https://steamcommunity.com/profiles/76561197960266039       |
++-----------------------------------------------------------------------------+
 
-
-\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-| Changes from older (now-retroactively v1.x) scripts:                 |
-///////////////////////////////////////////////////////////\////////////
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+| Changes from older (now-retroactively v1.x) scripts:          .......       |
+///////////////////////////////////////////////////////////////////////////////
 
 A lot has changed between the 1st generation (v1.x) and 2nd generation (v2.x)
 of these scripts.  This includes changes such as:
@@ -28,16 +27,16 @@ of these scripts.  This includes changes such as:
 	* Now has a script available the "prepare" the OS for installation.
 	* Now has a script that will perform the "install" (after OS prepared).
 
-+----------------------------------------------------------------------+
-| Related Guide on Steam Community:                                    |
-+----------------------------------------------------------------------+
++-----------------------------------------------------------------------------+
+| Related Guide on Steam Community:                                           |
++-----------------------------------------------------------------------------+
 
 Weasel's Dedicated-Server Management System, v2 (for Linux)
 https://steamcommunity.com/sharedfiles/filedetails/?id=3259278773
 
-+----------------------------------------------------------------------+
-| Purpose of each (one-time-use) script:                               |
-+----------------------------------------------------------------------+
++-----------------------------------------------------------------------------+
+| Purpose of each (one-time-use) script:                                      |
++-----------------------------------------------------------------------------+
 
 Several scripts are provided strictly for initial setup purposes, and to not
 perform any direct action on the game-servers themselves.  These include:
@@ -121,9 +120,9 @@ The "Stencils" install script (install-stencils.sh):
 	* Downloading the latest Linux version of the example "Stencils",
 	* Installing the example Stencils into the default (stencils) folder.
 
-+----------------------------------------------------------------------+
-| New default scripts location:                                        |
-+----------------------------------------------------------------------+
++-----------------------------------------------------------------------------+
+| New default scripts location:                                               |
++-----------------------------------------------------------------------------+
 
 Changed the default installation folder is "$HOME\wgasm" folder.  This
 should avoid conflicting with any other scripting projects that the author (or
@@ -138,9 +137,9 @@ where it is located, and then use that as the basis for:
 	* Importing code from variuos "source include" files.
 	* Running other scripts that are part of this project.
 
-+----------------------------------------------------------------------+
-| The central configuration file:                                      |
-+----------------------------------------------------------------------+
++-----------------------------------------------------------------------------+
+| The central configuration file:                                             |
++-----------------------------------------------------------------------------+
 
 Many items formerly hard-coded into the scripts, have been moved into the
 central configuration file.  This file should be in the same folder as the
@@ -198,9 +197,9 @@ The default values included in the configuration file (config.txt) are:
 	banner_file=banner.txt
 	steam_login="anonymous"
 
-+----------------------------------------------------------------------+
-| Consequences of changing the default SCRIPTS location (~/wgasm):     |
-+----------------------------------------------------------------------+
++-----------------------------------------------------------------------------+
+| Consequences of changing the default SCRIPTS location (~/wgasm):            |
++-----------------------------------------------------------------------------+
 
 The default location for the scripts would be the "wgasm" folder
 directly inside the Linux user-users "home-directory".  This is typically
@@ -223,9 +222,9 @@ possible consequences you need to keep in mind:
 * Similar issues with the "stencils" sub-folder.
 * Be sure to update the config file if you want "stencils" elsewhere.
 
-+----------------------------------------------------------------------+
-| Consequences of changing the default GAME-SERVERS base location (~/) |
-+----------------------------------------------------------------------+
++-----------------------------------------------------------------------------+
+| Consequences of changing the default GAME-SERVERS base location (~/)        |
++-----------------------------------------------------------------------------+
 
 The default location for game-server installations is branched directly inside
 the Linux users "home-directory".  This is typically described equally as
@@ -247,9 +246,9 @@ there are several possible consequences you need to keep in mind:
 * Similar issues for the "restore" function.  That function will only work for
   items that are INSIDE of that same location.
 
-+----------------------------------------------------------------------+
-| Purpose of each (regular) script:                                    |
-+----------------------------------------------------------------------+
++-----------------------------------------------------------------------------+
+| Purpose of each (regular) script:                                           |
++-----------------------------------------------------------------------------+
 
 Several scripts are provided strictly for diagnostic purposes, and to not
 perform any direct action on the game-servers themselves.  These include:
@@ -282,9 +281,9 @@ The scripts that actually perform functions for game-servers include:
 * game-server-monitor.sh   Monitors a GameServerID, restarting if needed.
 * game-server-command.sh   Sends a command to a GameServerID's console.
 
-+----------------------------------------------------------------------+
-| Now driven by data "tables":                                         |
-+----------------------------------------------------------------------+
++-----------------------------------------------------------------------------+
+| Now driven by data "tables":                                                |
++-----------------------------------------------------------------------------+
 
 Parameters that vary by game-type, game-server or game-stencil, have been
 migrated from being hard-coded in the scripts themselves - into text-based
@@ -323,9 +322,9 @@ For all fields, the data expected are strings of characters.  For some of
 the fields, it is more restrictive - such as numeric, or all alpha-numeric,
 or even all lower-case alpha-numeric, etc.
 
-+----------------------------------------------------------------------+
-| The "game-types" table (wgasm/data/game-types.tsv):                  |
-+----------------------------------------------------------------------+
++-----------------------------------------------------------------------------+
+| The "game-types" table (wgasm/data/game-types.tsv):                         |
++-----------------------------------------------------------------------------+
 
 The game-types table, contains information about each game-type that the
 scripts are expected to work-with.  As the name implies, each game-type is
@@ -399,9 +398,9 @@ Field	Field-Name       Format/Restrictions
 13      description      Plain text, a short user-friendly name.
 14      comment	         Plain text, possibly HTML.
 
-+----------------------------------------------------------------------+
-| Updated pre-tabled "game-types":                                     |
-+----------------------------------------------------------------------+
++-----------------------------------------------------------------------------+
+| Updated pre-tabled "game-types":                                            |
++-----------------------------------------------------------------------------+
 
 The game-types table now includes a LARGE selection of games that (in theory)
 may be installed and managed via these scripts.  The updated game-types table
@@ -486,9 +485,9 @@ to be usabled with these scripts, currently includes:
 	* SDK Base 2007 - Untested. Template for installing various "mods" on top of.
 	* SDK Base 2013 - Untested. Template for installing various "mods" on top of.
 
-+----------------------------------------------------------------------+
-| The "game-servers" table (wgasm/data/game-servers.tsv):              |
-+----------------------------------------------------------------------+
++-----------------------------------------------------------------------------+
+| The "game-servers" table (wgasm/data/game-servers.tsv):                     |
++-----------------------------------------------------------------------------+
 
 The game-servers table, contains information about each game-server that will
 exist - for the scripts to perform various functions on, such as:
@@ -546,9 +545,9 @@ Field	Field-Name    Format/Restrictions
 7       description   Plain text, a short user-friendly name for the server.
 8       comment       Plain text, possibly HTML.
 
-+----------------------------------------------------------------------+
-| The "game-stencils" table (wgasm/data/game-stencils.tsv):            |
-+----------------------------------------------------------------------+
++-----------------------------------------------------------------------------+
+| The "game-stencils" table (wgasm/data/game-stencils.tsv):                   |
++-----------------------------------------------------------------------------+
 
 The game-stencils table, contains information about each game-stencil that is
 available to be applied-to (aka "painted-onto") an existing game-server install.
@@ -601,7 +600,7 @@ Field	Field-Name       Format/Restrictions
 4       description      Plain text, a short user-friendly name for the server.
 5       comment	         Plain text, possibly HTML.
 
-+----------------------------------------------------------------------+
-| Revised: 2024-06-10-Rev-E                       ... Thats all folks! |
-+----------------------------------------------------------------------+
++-----------------------------------------------------------------------------+
+| Revised: 2024-06-10-Rev-F                              ... Thats all folks! |
++-----------------------------------------------------------------------------+
 
