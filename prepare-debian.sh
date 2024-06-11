@@ -697,7 +697,8 @@ if [ $WEBMIN_CHECK == true -a $TEST_USER_EXISTS == true ]; then
 				echo -e "/wgasm/data" >> $FILEMIN_BOOKMARKS_FILE;
 				echo -e "/wgasm/include" >> $FILEMIN_BOOKMARKS_FILE;
 				echo -e "/wgasm/webmin" >> $FILEMIN_BOOKMARKS_FILE;
-				chown game-servers:game-serves $FILEMIN_BOOKMARKS_FILE 2> /dev/null > /dev/null;
+				chown -R game-servers:game-servers $FILEMIN_BOOKMARKS_FOLDER 2> /dev/null > /dev/null;
+				chown game-servers:game-servers $FILEMIN_BOOKMARKS_FILE 2> /dev/null > /dev/null;
 				#
 				#	Check for any errors thrown ...
 				#
