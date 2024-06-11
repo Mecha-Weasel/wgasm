@@ -7,7 +7,7 @@
 #	|    \  /\  /  __/ (_| \__ \  __/ | \__ \  ____) | (__| | | | |_) | |_\__ \ |
 #	|     \/  \/ \___|\__,_|___/\___|_| |___/ |_____/ \___|_| |_| .__/ \__|___/ |
 #	|                                                           | |             |
-#	| Weasel's Dedicated Game-Server Management Scripts         |_|          v2 |
+#	| Weasels Dedicated (Game) Server Management System         |_|          v2 |
 #	+-------------------------------------+-------------------------------------+
 #	|    Weasel.SteamID.155@gMail.com     |   https://github.com/Mecha-Weasel   |
 #	+-------------------------------------+-------------------------------------+
@@ -15,7 +15,7 @@
 #	| Steam Profile = http://steamcommunity.com/profiles/76561197960266039      |
 #	+---------------------------------------------------------------------------+
 #
-#	Weasel's Dedicated Game-Server Management Scripts Configuration File
+#	Weasels Dedicated (Game) Server Management System (WDSMS) Configuration File
 #
 #	Notes:
 #	-----

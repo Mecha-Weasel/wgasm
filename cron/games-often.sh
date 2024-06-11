@@ -27,21 +27,21 @@
 #
 #		Monitor game-servers for fatal conditions ...
 #
-#$HOME/weaselsscripts/game-server-monitor.sh server0hl1;  # Uncomment the BEGINNING of this line to enable monitoring of this server.
-#$HOME/weaselsscripts/game-server-monitor.sh server1dmc;  # Uncomment the BEGINNING of this line to enable monitoring of this server.
-#$HOME/weaselsscripts/game-server-monitor.sh server2tfc;  # Uncomment the BEGINNING of this line to enable monitoring of this server.
-#$HOME/weaselsscripts/game-server-monitor.sh server3tf2;  # Uncomment the BEGINNING of this line to enable monitoring of this server.
-#$HOME/weaselsscripts/game-server-monitor.sh server4cs1;  # Uncomment the BEGINNING of this line to enable monitoring of this server.
-#$HOME/weaselsscripts/game-server-monitor.sh server5css;  # Uncomment the BEGINNING of this line to enable monitoring of this server.
-#$HOME/weaselsscripts/game-server-monitor.sh server6cs2;  # Uncomment the BEGINNING of this line to enable monitoring of this server.
-#$HOME/weaselsscripts/game-server-monitor.sh server7dod;  # Uncomment the BEGINNING of this line to enable monitoring of this server.
-#$HOME/weaselsscripts/game-server-monitor.sh server8dods; # Uncomment the BEGINNING of this line to enable monitoring of this server.
-#$HOME/weaselsscripts/game-server-monitor.sh server9fof;  # Uncomment the BEGINNING of this line to enable monitoring of this server.
+#$HOME/wdsms/game-server-monitor.sh server0hl1;  # Uncomment the BEGINNING of this line to enable monitoring of this server.
+#$HOME/wdsms/game-server-monitor.sh server1dmc;  # Uncomment the BEGINNING of this line to enable monitoring of this server.
+#$HOME/wdsms/game-server-monitor.sh server2tfc;  # Uncomment the BEGINNING of this line to enable monitoring of this server.
+#$HOME/wdsms/game-server-monitor.sh server3tf2;  # Uncomment the BEGINNING of this line to enable monitoring of this server.
+#$HOME/wdsms/game-server-monitor.sh server4cs1;  # Uncomment the BEGINNING of this line to enable monitoring of this server.
+#$HOME/wdsms/game-server-monitor.sh server5css;  # Uncomment the BEGINNING of this line to enable monitoring of this server.
+#$HOME/wdsms/game-server-monitor.sh server6cs2;  # Uncomment the BEGINNING of this line to enable monitoring of this server.
+#$HOME/wdsms/game-server-monitor.sh server7dod;  # Uncomment the BEGINNING of this line to enable monitoring of this server.
+#$HOME/wdsms/game-server-monitor.sh server8dods; # Uncomment the BEGINNING of this line to enable monitoring of this server.
+#$HOME/wdsms/game-server-monitor.sh server9fof;  # Uncomment the BEGINNING of this line to enable monitoring of this server.
 #
 #		Log running game-server processes ...
 #
-$HOME/weaselsscripts/list-running.sh;
-$HOME/weaselsscripts/list-running.sh; >> "$SCRIPT_LOG_FILE";
+$HOME/wdsms/list-running.sh;
+$HOME/wdsms/list-running.sh; >> "$SCRIPT_LOG_FILE";
 #
 #	    //////////////////////////////////////////
 #	... OFTEN maintenance stuff ends before here.

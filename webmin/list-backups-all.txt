@@ -1,5 +1,5 @@
 data
-weaselsscripts
+wdsms
 server0hl1
 server1dmc
 server2tfc

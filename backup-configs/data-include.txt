@@ -1,6 +1,6 @@
-weaselsscripts/config.txt
-weaselsscripts/data
-weaselsscripts/backup-configs
-weaselsscripts/cron
-weaselsscripts/webmin
+wdsms/config.txt
+wdsms/data
+wdsms/backup-configs
+wdsms/cron
+wdsms/webmin
 

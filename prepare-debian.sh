@@ -4,7 +4,7 @@
 #	Script to update OS (Debian) packages required for these scripts
 #	============================================================================
 #	Created:       2024-05-31, by Weasel.SteamID.155@gMail.com
-#	Last modified: 2024-06-05, by Weasel.SteamID.155@gMail.com
+#	Last modified: 2024-06-10, by Weasel.SteamID.155@gMail.com
 #	----------------------------------------------------------------------------
 #	__        ___    ____  _   _ ___ _   _  ____
 #	\ \      / / \  |  _ \| \ | |_ _| \ | |/ ___|_
@@ -12,7 +12,7 @@
 #	  \ V  V / ___ \|  _ <| |\  || || |\  | |_| |_
 #	   \_/\_/_/   \_\_| \_\_| \_|___|_| \_|\____(_)
 #
-#	NOTE:  This is the ONLY script of the "weaselsscripts" project,
+#	NOTE:  This is the ONLY script of the "wdsms" project,
 #	----   that actually REQUIRES that it be run either directly as
 #	       the "root" user, or a user with similar 'sudo' privileges.
 #
@@ -394,7 +394,7 @@ if [[ $WEBMIN_CHECK == true ]]; then
 				cd $WEBMIN_FOLDER;
 				CUSTOM_COMMANDS_FILE="webmin-custom.tar.gz";
 				echo "Downloading the Webmin \"Custom Commands\" archive (webmin-custom.tar.gz)  ...";
-				wget -O $CUSTOM_COMMANDS_FILE https://github.com/Mecha-Weasel/weaselsscripts/raw/main/webmin-custom.tar.gz && TEST_ERROR_CHECK=false || TEST_ERROR_CHECK=true;
+				wget -O $CUSTOM_COMMANDS_FILE https://github.com/Mecha-Weasel/wdsms/raw/main/webmin-custom.tar.gz && TEST_ERROR_CHECK=false || TEST_ERROR_CHECK=true;
 				#
 				#	Extract the gzipped-tarball archive of Webmin "Custom Commands" ...
 				#
@@ -412,7 +412,7 @@ if [[ $WEBMIN_CHECK == true ]]; then
 				;;
 			n|N|no|No|NO)
 				#
-				#	Do not install the "weaselsscripts" system, but warn about creating it ...
+				#	Do not install the "wdsms" system, but warn about creating it ...
 				#
 				MESSAGE="${ANSI_YELLOW}WARNING:${ANSI_OFF}\n";
 				MESSAGE+="${ANSI_WHITE}Okay, whatever - if you want to make your life harder than it needs to be!${ANSI_OFF}";
@@ -433,7 +433,6 @@ if [[ $WEBMIN_CHECK == true ]]; then
 		MESSAGE+="Looks like \"Webmin\" is NOT already installed, so NOT offering to install Webmin \"Custom Commands\".";
 		echo -e "\n$MESSAGE\n";
 fi;
-
 #
 #	Test ti see if the game-servers user already exists ..
 #
@@ -502,47 +501,47 @@ fi;
 sudo id game-servers &> /dev/null && TEST_USER_EXISTS=true || TEST_USER_EXISTS=false;
 if [[ $TEST_USER_EXISTS == true ]]; then
 		#
-		#	Offer to perform the installion the "weaselsscripts" system, as the game-servers user ...
+		#	Offer to perform the installion the "wdsms" system, as the game-servers user ...
 		#
 		if [[ $NIKE_MODE == true ]]; then
 				PROMPT_INPUT="nike";
 			else
-				read -p "Would you like to pre-download the latest \"weaselsscripts\" installation script (install-weaselsscripts.sh) under the \"game-servers\" user now? (y/n)" PROMPT_INPUT;
+				read -p "Would you like to pre-download the latest \"wdsms\" installation script (install-wdsms.sh) under the \"game-servers\" user now? (y/n)" PROMPT_INPUT;
 		fi;
 		case $PROMPT_INPUT in
 			y|Y|yes|Yes|YES|nike)
 				#
 				#	Create the game-servers user ...
 				#
-				echo "Downloading the \"weaselsscripts\" installation script (install-weaselsscripts.sh) under the \"game-servers\" user ...";
-				DOWNLOAD_COMMAND="wget -O install-weaselsscripts.sh https://github.com/Mecha-Weasel/weaselsscripts/raw/main/install-weaselsscripts.sh";
+				echo "Downloading the \"wdsms\" installation script (install-wdsms.sh) under the \"game-servers\" user ...";
+				DOWNLOAD_COMMAND="wget -O install-wdsms.sh https://github.com/Mecha-Weasel/wdsms/raw/main/install-wdsms.sh";
 				SUDO_DOWNLOAD_COMMAND="sudo -i -u game-servers $DOWNLOAD_COMMAND";
 				{ $SUDO_DOWNLOAD_COMMAND; } && { TEST_ERROR_CHECK=false; } || { TEST_ERROR_CHECK=true; };
 				if [[ $TEST_ERROR_CHECK == true ]]; then
 						TEST_USER_EXISTS=false;
 						MESSAGE="${ANSI_REDLT}ERROR:${ANSI_OFF}\n";
-						MESSAGE+="${ANSI_WHITE}There was a problem downloading the \"weaselsscripts\" installation script under the \"${ANSI_YELLOW}game-servers${ANSI_WHITE}\" user!${ANSI_OFF}\n";
+						MESSAGE+="${ANSI_WHITE}There was a problem downloading the \"wdsms\" installation script under the \"${ANSI_YELLOW}game-servers${ANSI_WHITE}\" user!${ANSI_OFF}\n";
 						echo -e "\n$MESSAGE\n";
 						exit 1;
 					else
 						TEST_USER_EXISTS=true;
 						MESSAGE="${ANSI_GREENLT}PASSED:${ANSI_OFF}\n";
-						MESSAGE+="${ANSI_WHITE}The \"weaselsscripts\" installation script (install-weaselsscripts.sh) should now be pre-downloaded under the \"${ANSI_YELLOW}game-servers${ANSI_WHITE}\" user.${ANSI_OFF}\n";
-						MESSAGE+="${ANSI_WHITE}To install the \"weaselsscripts\" system:${ANSI_OFF}\n";
+						MESSAGE+="${ANSI_WHITE}The \"wdsms\" installation script (install-wdsms.sh) should now be pre-downloaded under the \"${ANSI_YELLOW}game-servers${ANSI_WHITE}\" user.${ANSI_OFF}\n";
+						MESSAGE+="${ANSI_WHITE}To install the \"wdsms\" system:${ANSI_OFF}\n";
 						MESSAGE+="${ANSI_WHITE}1) Login as \"${ANSI_YELLOW}game-servers${ANSI_WHITE}\" user.${ANSI_OFF}\n";
-						MESSAGE+="${ANSI_WHITE}2) Mark the ${ANSI_YELLOW}install-weaselsscripts.sh${ANSI_WHITE} file as executable (using the command: \"chmod +x ~/install-weaselsscripts.sh\").${ANSI_OFF}\n";
-						MESSAGE+="${ANSI_WHITE}3) Run the ${ANSI_YELLOW}install-weaselsscripts.sh${ANSI_WHITE} script (using the command: \"~/install-weaselsscripts.sh\").${ANSI_OFF}";
+						MESSAGE+="${ANSI_WHITE}2) Mark the ${ANSI_YELLOW}install-wdsms.sh${ANSI_WHITE} file as executable (using the command: \"chmod +x ~/install-wdsms.sh\").${ANSI_OFF}\n";
+						MESSAGE+="${ANSI_WHITE}3) Run the ${ANSI_YELLOW}install-wdsms.sh${ANSI_WHITE} script (using the command: \"~/install-wdsms.sh\").${ANSI_OFF}";
 						echo -e "\n$MESSAGE\n";
 						sudo -i -u game-servers ls -lah;
 				fi;
 				;;
 			n|N|no|No|NO)
 				#
-				#	Do not install the "weaselsscripts" system, but warn about creating it ...
+				#	Do not install the "wdsms" system, but warn about creating it ...
 				#
 				MESSAGE="${ANSI_YELLOW}WARNING:${ANSI_OFF}\n";
 				MESSAGE+="${ANSI_WHITE}Okay, whatever - just remember to install it later yourself!${ANSI_OFF}\n";
-				MESSAGE+="Remember when installing the \"weaselsscripts\" system, be sure to be logged-in as the \"${ANSI_YELLOW}game-servers${ANSI_WHITE}\" user!${ANSI_OFF}";
+				MESSAGE+="Remember when installing the \"wdsms\" system, be sure to be logged-in as the \"${ANSI_YELLOW}game-servers${ANSI_WHITE}\" user!${ANSI_OFF}";
 				echo -e "\n$MESSAGE\n";
 				;;
 			*)
@@ -557,10 +556,10 @@ if [[ $TEST_USER_EXISTS == true ]]; then
 		esac;
 	else
 		#
-		#	Skip installing the "weaselsscripts" system if the game-servers user does not exist ...
+		#	Skip installing the "wdsms" system if the game-servers user does not exist ...
 		#
 		MESSAGE="${ANSI_GREENLT}Update:${ANSI_OFF}\n";
-		MESSAGE+="Since \"game-servers\" does not exist, skipping offering to install the \"weaselsscripts\" system.";
+		MESSAGE+="Since \"game-servers\" does not exist, skipping offering to install the \"wdsms\" system.";
 		echo -e "\n$MESSAGE\n";
 fi;
 #
@@ -691,12 +690,12 @@ if [ $WEBMIN_CHECK == true -a $TEST_USER_EXISTS == true ]; then
 				echo -e "/" > $FILEMIN_BOOKMARKS_FILE;
 				echo -e "/backups" >> $FILEMIN_BOOKMARKS_FILE;
 				echo -e "/logs" >> $FILEMIN_BOOKMARKS_FILE;
-				echo -e "/weaselsscripts" >> $FILEMIN_BOOKMARKS_FILE;
-				echo -e "/weaselsscripts/backup-configs" >> $FILEMIN_BOOKMARKS_FILE;
-				echo -e "/weaselsscripts/cron" >> $FILEMIN_BOOKMARKS_FILE;
-				echo -e "/weaselsscripts/data" >> $FILEMIN_BOOKMARKS_FILE;
-				echo -e "/weaselsscripts/include" >> $FILEMIN_BOOKMARKS_FILE;
-				echo -e "/weaselsscripts/webmin" >> $FILEMIN_BOOKMARKS_FILE;
+				echo -e "/wdsms" >> $FILEMIN_BOOKMARKS_FILE;
+				echo -e "/wdsms/backup-configs" >> $FILEMIN_BOOKMARKS_FILE;
+				echo -e "/wdsms/cron" >> $FILEMIN_BOOKMARKS_FILE;
+				echo -e "/wdsms/data" >> $FILEMIN_BOOKMARKS_FILE;
+				echo -e "/wdsms/include" >> $FILEMIN_BOOKMARKS_FILE;
+				echo -e "/wdsms/webmin" >> $FILEMIN_BOOKMARKS_FILE;
 				chown game-servers:game-serves $FILEMIN_BOOKMARKS_FILE 2> /dev/null > /dev/null;
 				#
 				#	Check for any errors thrown ...

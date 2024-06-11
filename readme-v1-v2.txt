@@ -6,13 +6,14 @@
 |     \  /\  /  __/ (_| \__ \  __/ | \__ \  ____) | (__| | | | |_) | |_\__ \  |
 |      \/  \/ \___|\__,_|___/\___|_| |___/ |_____/ \___|_| |_| .__/ \__|___/  |
 |                                                      | |                    |
-| Weasels Dedicated Game-Server Management Scripts     |_|                 v2 |
+| Weasels Dedicated (Game) Server Management System    |_|                 v2 |
 +--------------------------------------+--------------------------------------+
 | Weasel.SteamID.155@gMail.com         | https://github.com/Mecha-Weasel      |
 +--------------------------------------+--------------------------------------+
 | Discord =       https://discordapp.com/users/weasel.steamid.155             |
 | Steam Profile = http://steamcommunity.com/profiles/76561197960266039        |
 +-----------------------------------------------------------------------------+
+
 
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 | Changes from older (now-retroactively v1.x) scripts:                        |
@@ -32,7 +33,7 @@ of these scripts.  This includes changes such as:
 | Related Guide on Steam Community:                                           |
 +-----------------------------------------------------------------------------+
 
-Weasel's Dedicated-Server Management Scripts, v2 (for Linux)
+Weasel's Dedicated-Server Management System, v2 (for Linux)
 https://steamcommunity.com/sharedfiles/filedetails/?id=3259278773
 
 +-----------------------------------------------------------------------------+
@@ -43,7 +44,7 @@ Several scripts are provided strictly for initial setup purposes, and to not
 perform any direct action on the game-servers themselves.  These include:
 
 * prepare-debian.sh          Run as "root", prepares OS for installation.
-* install-weaselsscripts.sh  Run as "game-servers", installs the system.
+* install-wdsms.sh  Run as "game-servers", installs the system.
 * install-steamcmd.sh        Run as "game-servers", installs SteamCMD.
 * install-stencils.sh        Run as "game-servers", installs Stencils.
 
@@ -72,7 +73,7 @@ The "Prepare" script (prepare-debian.sh):
 	* Offer to pre-download the "Install" folder into "game-servers".
 	* Offer to setup the "game-servers" Linux user as a Webmin user.
 
-The main "Install" script (install-weaselsscripts.sh):
+The main "Install" script (install-wdsms.sh):
 
 	The "Install" script should be run under a completely unprivileged
 	Linux user - that does NOT have any admin privileges using "sudo" or
@@ -83,7 +84,7 @@ The main "Install" script (install-weaselsscripts.sh):
 	to assuming "yes" to all interactive prompts.  This feature is known
 	as "Nike Mode" or "Just Do It!".  The parameter is used like this:
 
-		./install-weaselsscripts.sh --nike;
+		./install-wdsms.sh --nike;
 
 	The "Install" script will perform several functions automating as much
 	of the process as possible.  These functions include:
@@ -125,7 +126,7 @@ The "Stencils" install script (install-stencils.sh):
 | New default scripts location:                                               |
 +-----------------------------------------------------------------------------+
 
-Changed the default installation folder is "$HOME\weaselsscripts" folder.  This
+Changed the default installation folder is "$HOME\wdsms" folder.  This
 should avoid conflicting with any other scripting projects that the author (or
 the user) might be working-with.
 
@@ -199,12 +200,12 @@ The default values included in the configuration file (config.txt) are:
 	steam_login="anonymous"
 
 +-----------------------------------------------------------------------------+
-| Consequences of changing the default SCRIPTS location (~/weaselsscripts):   |
+| Consequences of changing the default SCRIPTS location (~/wdsms):   |
 +-----------------------------------------------------------------------------+
 
-The default location for the scripts would be the "weaselsscripts" folder
+The default location for the scripts would be the "wdsms" folder
 directly inside the Linux user-users "home-directory".  This is typically
-described equally as either "$HOME/weaselsscripts/" or "~/weaselsscripts/" -
+described equally as either "$HOME/wdsms/" or "~/wdsms/" -
 depending on the format required.
 
 If you want to place the scripts in some other location, there are several
@@ -324,7 +325,7 @@ the fields, it is more restrictive - such as numeric, or all alpha-numeric,
 or even all lower-case alpha-numeric, etc.
 
 +-----------------------------------------------------------------------------+
-| The "game-types" table (weaselsscripts/data/game-types.tsv):                |
+| The "game-types" table (wdsms/data/game-types.tsv):                |
 +-----------------------------------------------------------------------------+
 
 The game-types table, contains information about each game-type that the
@@ -487,7 +488,7 @@ to be usabled with these scripts, currently includes:
 	* SDK Base 2013 - Untested. Template for installing various "mods" on top of.
 
 +-----------------------------------------------------------------------------+
-| The "game-servers" table (weaselsscripts/data/game-servers.tsv):            |
+| The "game-servers" table (wdsms/data/game-servers.tsv):            |
 +-----------------------------------------------------------------------------+
 
 The game-servers table, contains information about each game-server that will
@@ -547,7 +548,7 @@ Field	Field-Name    Format/Restrictions
 8       comment       Plain text, possibly HTML.
 
 +-----------------------------------------------------------------------------+
-| The "game-stencils" table (weaselsscripts/data/game-stencils.tsv):          |
+| The "game-stencils" table (wdsms/data/game-stencils.tsv):          |
 +-----------------------------------------------------------------------------+
 
 The game-stencils table, contains information about each game-stencil that is
@@ -602,6 +603,6 @@ Field	Field-Name       Format/Restrictions
 5       comment	         Plain text, possibly HTML.
 
 +-----------------------------------------------------------------------------+
-| Revised: 2024-06-09-Rev-c                              ... Thats all folks! |
+| Revised: 2024-06-10-Rev-D                              ... Thats all folks! |
 +-----------------------------------------------------------------------------+
 
