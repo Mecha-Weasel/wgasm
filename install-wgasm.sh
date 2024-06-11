@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 #	----------------------------------------------------------------------------
-#	Script to install WDSMS ...
+#	Script to install wGASM ...
 #	============================================================================
 #	Created:       2024-05-31, by Weasel.SteamID.155@gMail.com
 #	Last modified: 2024-06-10, by Weasel.SteamID.155@gMail.com
