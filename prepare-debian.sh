@@ -590,25 +590,34 @@ if [ $WEBMIN_CHECK == true -a $TEST_USER_EXISTS == true ]; then
 				#
 				echo "Setting-up \"game-servers\" as a Webmin user ...";
 				#
-				#		Add "game-servers" to webmin/config ...
-				#
-				WEBMIN_CONFIG_FILE="$WEBMIN_FOLDER/config";
-				sed -i '/^notabs_game-servers=0/d' $WEBMIN_CONFIG_FILE;
-				sed -i '/^notabs_game-servers=1/d' $WEBMIN_CONFIG_FILE;
-				sed -i '/^notabs_game-servers=2/d' $WEBMIN_CONFIG_FILE;
-				WEBMIN_CONFIG_ENTRY="notabs_game-servers=2";
-				sed -i '/^nrealname_game-servers/d' $WEBMIN_CONFIG_FILE;
-				WEBMIN_CONFIG_ENTRY="realname_game-servers=Game-Servers";
-				echo "$WEBMIN_CONFIG_ENTRY" >> $WEBMIN_CONFIG_FILE;
-				#
 				#		Add "game-servers" to webmin/miniserv.users ...
+				#
+				#			root:x:0
+				#			game-servers:x::::::::0::::
 				#
 				WEBMIN_MINISERV_FILE="$WEBMIN_FOLDER/miniserv.users";
 				sed -i '/^game-servers/d' $WEBMIN_MINISERV_FILE;
 				WEBMIN_MINISERV_ENTRY="game-servers:x::::::::0::::";
 				echo "$WEBMIN_MINISERV_ENTRY" >> $WEBMIN_MINISERV_FILE;
 				#
+				#		Add "game-servers" to webmin/config ...
+				#
+				#			realname_game-servers=Game-Servers
+				#			notabs_game-servers=2
+				#
+				WEBMIN_CONFIG_FILE="$WEBMIN_FOLDER/config";
+				sed -i '/^notabs_game-servers=0/d' $WEBMIN_CONFIG_FILE;
+				sed -i '/^notabs_game-servers=1/d' $WEBMIN_CONFIG_FILE;
+				sed -i '/^notabs_game-servers=2/d' $WEBMIN_CONFIG_FILE;
+				WEBMIN_CONFIG_ENTRY="notabs_game-servers=2";
+				sed -i '/^realname_game-servers/d' $WEBMIN_CONFIG_FILE;
+				WEBMIN_CONFIG_ENTRY="realname_game-servers=Game-Servers";
+				echo "$WEBMIN_CONFIG_ENTRY" >> $WEBMIN_CONFIG_FILE;
+				#
 				#		Add "game-servers" to webmin/webmin.acl ...
+				#
+				#			root: acl adsl-client apache at backup-config bacula-backup bandwidth bind8 change-user cluster-copy cluster-cron cluster-passwd cluster-shell cluster-software cluster-useradmin cluster-usermin cluster-webmin cpan cron custom dfsadmin dhcpd dovecot exim exports fail2ban fdisk fetchmail filemin filter firewall firewall6 firewalld fsdump heartbeat htaccess-htpasswd idmapd inetd init inittab ipfilter ipfw ipsec iscsi-client iscsi-server iscsi-target iscsi-tgtd krb5 ldap-client ldap-server ldap-useradmin logrotate logviewer lpadmin lvm mailboxes mailcap man mount mysql net nis openslp package-updates pam pap passwd phpini postfix postgresql ppp-client pptp-client pptp-server proc procmail proftpd qmailadmin quota raid samba sarg sendmail servers shell shorewall shorewall6 smart-status smf software spam squid sshd status stunnel syslog-ng syslog system-status tcpwrappers time tunnel updown useradmin usermin webalizer webmin webmincron webminlog xinetd xterm
+				#			game-servers: custom filemin updown uthentic-theme
 				#
 				WEBMIN_ACL_FILE="$WEBMIN_FOLDER/webmin.acl";
 				sed -i '/^game-servers/d' $WEBMIN_ACL_FILE;
@@ -618,12 +627,26 @@ if [ $WEBMIN_CHECK == true -a $TEST_USER_EXISTS == true ]; then
 				WEBMIN_ACL_ENTRY+=" updown";
 				WEBMIN_ACL_ENTRY+=" uthentic-theme";
 				echo -e "$WEBMIN_ACL_ENTRY" >> $WEBMIN_ACL_FILE;
-
 				#
 				#		Create webmin/game-servers.acl file ...
 				#
+				#			gedit2=
+				#			readonly=0
+				#			feedback=0
+				#			gedit_mode=0
+				#			nodot=0
+				#			uedit=
+				#			webminsearch=0
+				#			uedit2=
+				#			otherdirs=
+				#			rpc=0
+				#			negative=1
+				#			fileunix=game-servers
+				#			root=
+				#			uedit_mode=0
+				#			gedit=
+				#
 				GAMESEVERS_ACL_FILE="$WEBMIN_FOLDER/game-servers.acl";
-
 				echo -e "gedit2=" > $GAMESEVERS_ACL_FILE;
 				echo -e "readonly=0" >> $GAMESEVERS_ACL_FILE;
 				echo -e "feedback=0" >> $GAMESEVERS_ACL_FILE;
@@ -642,6 +665,15 @@ if [ $WEBMIN_CHECK == true -a $TEST_USER_EXISTS == true ]; then
 				#
 				#		Create webmin/updown/game-servers.acl file ...
 				#
+				#			upload=1
+				#			home=1
+				#			dirs=/home/game-servers
+				#			fetch=1
+				#			max=
+				#			mode=1
+				#			download=1
+				#			users=game-servers
+				#
 				WEBMIN_UPDOWN_FILE="$WEBMIN_FOLDER/updown/game-servers.acl";
 				echo -e "upload=1" > $WEBMIN_UPDOWN_FILE;
 				echo -e "home=1" >> $WEBMIN_UPDOWN_FILE;
@@ -654,6 +686,12 @@ if [ $WEBMIN_CHECK == true -a $TEST_USER_EXISTS == true ]; then
 				#
 				#		Create webmin/filemin/game-servers.acl file ...
 				#
+				#			work_as_user=game-servers
+				#			work_as_root=0
+				#			max=
+				#			allowed_paths=/home/game-servers
+				#			allowed_for_edit=application-x-php application-x-ruby application-xml application-xslt+xml application-javascript application-x-shellscript application-x-perl application-x-yaml application-json application-x-x509-ca-cert application-pkix-cert application-sql application-x-sql application-x-asp application-x-aspx application-xhtml+xml
+				#
 				WEBMIN_FILEMIN_FILE="$WEBMIN_FOLDER/filemin/game-servers.acl";
 				echo -e "work_as_user=game-servers" > $WEBMIN_FILEMIN_FILE;
 				echo -e "work_as_root=0" >> $WEBMIN_FILEMIN_FILE;
@@ -662,6 +700,30 @@ if [ $WEBMIN_CHECK == true -a $TEST_USER_EXISTS == true ]; then
 				echo -e "allowed_for_edit=application-x-php application-x-ruby application-xml application-xslt+xml application-javascript application-x-shellscript application-x-perl application-x-yaml application-json application-x-x509-ca-cert application-pkix-cert application-sql application-x-sql application-x-asp application-x-aspx application-xhtml+xml" >> $WEBMIN_FILEMIN_FILE;
 				#
 				#		Create webmin/filemin/prefs.game-servers file ...
+				#
+				#			config_portable_module_filemanager_tree_view_depth=3
+				#			config_portable_module_filemanager_calculate_size=true
+				#			config_portable_module_filemanager_view_limit=512000
+				#			config_portable_module_filemanager_checksum_limit=1024000
+				#			config_portable_module_filemanager_tree_expand_search=true
+				#			config_portable_module_filemanager_editor_detect_encoding=true
+				#			config_portable_module_filemanager_files_safe_mode=true
+				#			config_portable_module_filemanager_hovered_toolbar=false
+				#			config_portable_module_filemanager_switch_users=true
+				#			config_portable_module_filemanager_tree_exclude_on_first_load=true
+				#			per_page=500
+				#			columns=type,size,owner_user,permissions,last_mod_time
+				#			config_portable_module_filemanager_records_for_server_pagination=1000
+				#			config_portable_module_filemanager_editor_tabs_to_spaces=false
+				#			config_portable_module_filemanager_editor_maximized=false
+				#			config_portable_module_filemanager_hide_tree_view=true
+				#			config_portable_module_filemanager_remember_tabs=false
+				#			config_portable_module_filemanager_force_tar=true
+				#			config_portable_module_filemanager_hide_actions=true
+				#			config_portable_module_filemanager_move_to_trash=false
+				#			config_portable_module_filemanager_default_sort=0
+				#			config_portable_module_filemanager_hide_toolbar=false
+				#			config_portable_module_filemanager_show_dot_files=true
 				#
 				WEBMIN_FILEMIN_FILE="$WEBMIN_FOLDER/filemin/prefs.game-servers";
 				echo -e "config_portable_module_filemanager_tree_view_depth=3" > $WEBMIN_FILEMIN_FILE;
@@ -690,12 +752,23 @@ if [ $WEBMIN_CHECK == true -a $TEST_USER_EXISTS == true ]; then
 				#
 				#		Create /home/game-servers/.filemin/.bookmarks file ...
 				#
+				#			/
+				#			/backups
+				#			/logs
+				#			/wgasm
+				#			/wgasm/backup-configs
+				#			/wgasm/cron
+				#			/wgasm/data
+				#			/wgasm/include
+				#			/wgasm/webmin
+				#
 				FILEMIN_BOOKMARKS_FOLDER="/home/game-servers/.filemin/";
 				mkdir $FILEMIN_BOOKMARKS_FOLDER 2> /dev/null > /dev/null;
 				FILEMIN_BOOKMARKS_FILE="$FILEMIN_BOOKMARKS_FOLDER/.bookmarks";
 				echo -e "/" > $FILEMIN_BOOKMARKS_FILE;
 				echo -e "/backups" >> $FILEMIN_BOOKMARKS_FILE;
 				echo -e "/logs" >> $FILEMIN_BOOKMARKS_FILE;
+				echo -e "/stencils" >> $FILEMIN_BOOKMARKS_FILE;
 				echo -e "/wgasm" >> $FILEMIN_BOOKMARKS_FILE;
 				echo -e "/wgasm/backup-configs" >> $FILEMIN_BOOKMARKS_FILE;
 				echo -e "/wgasm/cron" >> $FILEMIN_BOOKMARKS_FILE;
@@ -781,4 +854,3 @@ fi;
 #
 #	... thats all folks!
 #
-
