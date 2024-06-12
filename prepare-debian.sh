@@ -4,7 +4,7 @@
 #	Script to update OS (Debian) packages required for these scripts
 #	============================================================================
 #	Created:       2024-05-31, by Weasel.SteamID.155@gMail.com
-#	Last modified: 2024-06-05, by Weasel.SteamID.155@gMail.com
+#	Last modified: 2024-06-11, by Weasel.SteamID.155@gMail.com
 #	----------------------------------------------------------------------------
 #	__        ___    ____  _   _ ___ _   _  ____
 #	\ \      / / \  |  _ \| \ | |_ _| \ | |/ ___|_
@@ -597,6 +597,8 @@ if [ $WEBMIN_CHECK == true -a $TEST_USER_EXISTS == true ]; then
 				sed -i '/^notabs_game-servers=1/d' $WEBMIN_CONFIG_FILE;
 				sed -i '/^notabs_game-servers=2/d' $WEBMIN_CONFIG_FILE;
 				WEBMIN_CONFIG_ENTRY="notabs_game-servers=2";
+				sed -i '/^nrealname_game-servers/d' $WEBMIN_CONFIG_FILE;
+				WEBMIN_CONFIG_ENTRY="realname_game-servers=Game-Servers";
 				echo "$WEBMIN_CONFIG_ENTRY" >> $WEBMIN_CONFIG_FILE;
 				#
 				#		Add "game-servers" to webmin/miniserv.users ...
@@ -611,21 +613,32 @@ if [ $WEBMIN_CHECK == true -a $TEST_USER_EXISTS == true ]; then
 				WEBMIN_ACL_FILE="$WEBMIN_FOLDER/webmin.acl";
 				sed -i '/^game-servers/d' $WEBMIN_ACL_FILE;
 				WEBMIN_ACL_ENTRY+="game-servers:";
-				WEBMIN_ACL_ENTRY+=" shell";
 				WEBMIN_ACL_ENTRY+=" custom";
 				WEBMIN_ACL_ENTRY+=" filemin";
-				WEBMIN_ACL_ENTRY+=" tunnel";
-				WEBMIN_ACL_ENTRY+=" xterm";
 				WEBMIN_ACL_ENTRY+=" updown";
 				WEBMIN_ACL_ENTRY+=" uthentic-theme";
 				echo -e "$WEBMIN_ACL_ENTRY" >> $WEBMIN_ACL_FILE;
+
 				#
-				#		Create webmin/xterm/game-servers.acl file ...
+				#		Create webmin/game-servers.acl file ...
 				#
-				WEBMIN_XTERM_FILE="$WEBMIN_FOLDER/xterm/game-servers.acl";
-				WEBMIN_XTERM_ENTRY="user=game-servers";
-				WEBMIN_XTERM_ENTRY+="noconfig=0";
-				echo "$WEBMIN_XTERM_ENTRY" > $WEBMIN_XTERM_FILE;
+				GAMESEVERS_ACL_FILE="$WEBMIN_FOLDER/game-servers.acl";
+
+				echo -e "gedit2=" > $GAMESEVERS_ACL_FILE;
+				echo -e "readonly=0" >> $GAMESEVERS_ACL_FILE;
+				echo -e "feedback=0" >> $GAMESEVERS_ACL_FILE;
+				echo -e "gedit_mode=0" >> $GAMESEVERS_ACL_FILE;
+				echo -e "nodot=0" >> $GAMESEVERS_ACL_FILE;
+				echo -e "uedit=" >> $GAMESEVERS_ACL_FILE;
+				echo -e "webminsearch=0" >> $GAMESEVERS_ACL_FILE;
+				echo -e "uedit2=" >> $GAMESEVERS_ACL_FILE;
+				echo -e "otherdirs=" >> $GAMESEVERS_ACL_FILE;
+				echo -e "rpc=0" >> $GAMESEVERS_ACL_FILE;
+				echo -e "negative=1" >> $GAMESEVERS_ACL_FILE;
+				echo -e "fileunix=game-servers" >> $GAMESEVERS_ACL_FILE;
+				echo -e "root=" >> $GAMESEVERS_ACL_FILE;
+				echo -e "uedit_mode=0" >> $GAMESEVERS_ACL_FILE;
+				echo -e "gedit=" >> $GAMESEVERS_ACL_FILE;
 				#
 				#		Create webmin/updown/game-servers.acl file ...
 				#
@@ -638,14 +651,6 @@ if [ $WEBMIN_CHECK == true -a $TEST_USER_EXISTS == true ]; then
 				echo -e "mode=1" >> $WEBMIN_UPDOWN_FILE;
 				echo -e "download=1" >> $WEBMIN_UPDOWN_FILE;
 				echo -e "users=game-servers" >> $WEBMIN_UPDOWN_FILE;
-				#
-				#		Create webmin/shell/game-servers.acl file ...
-				#
-				WEBMIN_SHELL_FILE="$WEBMIN_FOLDER/shell/game-servers.acl";
-				echo -e "user=game-servers" > $WEBMIN_SHELL_FILE;
-				echo -e "chroot=/" >> $WEBMIN_SHELL_FILE;
-				echo -e "dnoconfig=0" >> $WEBMIN_SHELL_FILE;
-				echo -e "shellenv=1" >> $WEBMIN_SHELL_FILE;
 				#
 				#		Create webmin/filemin/game-servers.acl file ...
 				#
