@@ -1,4 +1,4 @@
-gamestencilid	gametypeid	stencilfilename	description	comment
+GameStencilID	GameTypeID	StencilFileName	Description	Comment
 cs1-base	cs1	cs1-base.zip	[CS1] Starter Config	Minimum config with autoexec.cfg, server.cfg, etc.
 cs1-amx	cs1	cs1-amx.zip	[CS1] MetaMod, AMX-Mod-X	Metamod, AMX-Mod-X starter setup.
 cs1-amx-bots	cs1	cs1-amx-bots.zip	[CS1] MetaMod, AMX-Mod-X, Bots	Metamod, AMX-Mod-X plus YaPB.
