@@ -606,12 +606,13 @@ if [ $WEBMIN_CHECK == true -a $TEST_USER_EXISTS == true ]; then
 				#			notabs_game-servers=2
 				#
 				WEBMIN_CONFIG_FILE="$WEBMIN_FOLDER/config";
-				sed -i '/^notabs_game-servers=0/d' $WEBMIN_CONFIG_FILE;
-				sed -i '/^notabs_game-servers=1/d' $WEBMIN_CONFIG_FILE;
-				sed -i '/^notabs_game-servers=2/d' $WEBMIN_CONFIG_FILE;
-				WEBMIN_CONFIG_ENTRY="notabs_game-servers=2";
+				#
 				sed -i '/^realname_game-servers/d' $WEBMIN_CONFIG_FILE;
 				WEBMIN_CONFIG_ENTRY="realname_game-servers=Game-Servers";
+				echo "$WEBMIN_CONFIG_ENTRY" >> $WEBMIN_CONFIG_FILE;
+				#
+				sed -i '/^notabs_game-servers/d' $WEBMIN_CONFIG_FILE;
+				WEBMIN_CONFIG_ENTRY="notabs_game-servers=2";
 				echo "$WEBMIN_CONFIG_ENTRY" >> $WEBMIN_CONFIG_FILE;
 				#
 				#		Add "game-servers" to webmin/webmin.acl ...
