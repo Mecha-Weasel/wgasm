@@ -16,6 +16,8 @@ chmod +x prepare-debian.sh;
   
 sudo ./prepare-debian.sh;
 
+
+
 THIRD: Login as the "game-servers" unprivledged user.
 
 FOURTH: Run the "install-wgasm.sh" script:
