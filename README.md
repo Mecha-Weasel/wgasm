@@ -18,4 +18,4 @@ Quick-Quick Start:
 
   wget -O install-wgasm.sh https://github.com/Mecha-Weasel/wgasm/raw/main/install-wgasm.sh;wait;
   chmod +x install-wgasm.sh;
-  ./install-wgash.sh;
+  ./install-wgasm.sh;
