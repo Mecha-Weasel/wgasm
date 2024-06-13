@@ -10,18 +10,18 @@ Quick-Quick Start:
 
 2.  SECOND: Download and run the "prepare-debian.sh" script:
 
-2a.    wget -O prepare-debian.sh https://github.com/Mecha-Weasel/wgasm/raw/main/prepare-debian.sh;wait;
+;				wget -O prepare-debian.sh https://github.com/Mecha-Weasel/wgasm/raw/main/prepare-debian.sh;wait;
   
-2b.    chmod +x prepare-debian.sh;
+;				chmod +x prepare-debian.sh;
   
-2c.    sudo ./prepare-debian.sh;
+;				sudo ./prepare-debian.sh;
 
 3.  THIRD: Login as the "game-servers" unprivledged user.
 
 4.  FOURTH: Run the "install-wgasm.sh" script:
 
-4a.    wget -O install-wgasm.sh https://github.com/Mecha-Weasel/wgasm/raw/main/install-wgasm.sh;wait;
+;				wget -O install-wgasm.sh https://github.com/Mecha-Weasel/wgasm/raw/main/install-wgasm.sh;wait;
   
-4b.    chmod +x install-wgasm.sh;
+;				chmod +x install-wgasm.sh;
   
-4c.    ./install-wgasm.sh;
+;				./install-wgasm.sh;
