@@ -1,5 +1,6 @@
 data
 wgasm
+stencils
 server0hl1
 server1dmc
 server2tfc

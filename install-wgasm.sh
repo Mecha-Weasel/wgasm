@@ -4,7 +4,7 @@
 #	Script to install wGASM ...
 #	============================================================================
 #	Created:       2024-05-31, by Weasel.SteamID.155@gMail.com
-#	Last modified: 2024-06-10, by Weasel.SteamID.155@gMail.com
+#	Last modified: 2024-06-13, by Weasel.SteamID.155@gMail.com
 #	----------------------------------------------------------------------------
 #	__        ___    ____  _   _ ___ _   _  ____
 #	\ \      / / \  |  _ \| \ | |_ _| \ | |/ ___|_
@@ -204,6 +204,82 @@ if [[ $TEST_ERROR_CHECK == true ]]; then
 		echo -e "\n$MESSAGE\n";
 fi;
 #
+#	If the default config file does not yet exist,
+#	use a copy of the example config file.  But,
+#	do NOT overwrite any existing config file ...
+#
+echo -e "Deploying config ...";
+if [ ! -f $HOME/wgasm/config.txt ]; then
+	cp -f $HOME/wgasm/config-example.txt $HOME/wgasm/config.txt;
+fi;
+#
+#	If the default banner file does not yet exist,
+#	use a copy of the example banner file.  But,
+#	do NOT overwrite any existing banner file ...
+#
+echo -e "Deploying banner ...";
+if [ ! -f $HOME/wgasm/data/banner.txt ]; then
+	cp -f $HOME/wgasm/data/banner-example.txt $HOME/wgasm/data/banner.txt;
+fi;
+#
+#	If the various data "tables" do not exist yet,
+#	use copies of the example tables.  But,
+#	do NOT overwrite any existing tables ...
+#
+echo -e "Deploying data tables ...";
+if [ ! -f $HOME/wgasm/data/game-types.tsv ]; then
+	cp -f $HOME/wgasm/data/game-types-example.tsv $HOME/wgasm/data/game-types.tsv;
+fi;
+if [ ! -f $HOME/wgasm/data/game-stencils.tsv ]; then
+	cp -f $HOME/wgasm/data/game-stencils-example.tsv $HOME/wgasm/data/game-stencils.tsv;
+fi;
+if [ ! -f $HOME/wgasm/data/game-servers.tsv ]; then
+	cp -f $HOME/wgasm/data/game-servers-example.tsv $HOME/wgasm/data/game-servers.tsv;
+fi;
+#
+#	If the recommended "webmin" lists do not exist yet,
+#	use copies of the example webmin lists.  But,
+#	do NOT overwrite any existing webmin lists ...
+#
+echo -e "Deploying Webmin lists ...";
+if [ ! -f $HOME/wgasm/webmin/list-backups-all.txt ]; then
+	cp -f $HOME/wgasm/webmin/list-backups-all-example.txt $HOME/wgasm/webmin/list-backups-all.txt;
+fi;
+if [ ! -f $HOME/wgasm/webmin/list-servers-all.txt ]; then
+	cp -f $HOME/wgasm/webmin/list-servers-all-example.txt $HOME/wgasm/webmin/list-servers-all.txt;
+fi;
+#
+#	If the recommended "cron" sripts do not exist yet,
+#	use copies of the example cron scripts.  But,
+#	do NOT overwrite any existing cron scripts ...
+#
+echo -e "Deploying cron scripts ...";
+if [ ! -f $HOME/wgasm/cron/games-weekly.sh ]; then
+	cp -f $HOME/wgasm/cron/games-weekly-example.sh $HOME/wgasm/cron/games-weekly.sh;
+fi;
+if [ ! -f $HOME/wgasm/cron/games-daily.sh ]; then
+	cp -f $HOME/wgasm/cron/games-daily-example.sh $HOME/wgasm/cron/games-daily.sh;
+fi;
+if [ ! -f $HOME/wgasm/cron/games-hourly.sh ]; then
+	cp -f $HOME/wgasm/cron/games-hourly-example.sh $HOME/wgasm/cron/games-hourly.sh;
+fi;
+if [ ! -f $HOME/wgasm/cron/games-often.sh ]; then
+	cp -f $HOME/wgasm/cron/games-often-example.sh $HOME/wgasm/cron/games-often.sh;
+fi;
+#
+#	If any of checks failed, display an error messsage ...
+#
+if [[ $TEST_ERROR_CHECK == true ]]; then
+		MESSAGE="${ANSI_REDLT}ERROR:${ANSI_OFF}\n";
+		MESSAGE+="${ANSI_WHITE}Something went wrong!${ANSI_OFF}";
+		echo -e "\n$MESSAGE\n";
+		exit 1;
+	else
+		MESSAGE="${ANSI_GREENLT}PASSED:${ANSI_OFF}\n";
+		MESSAGE+="${ANSI_WHITE}Everything looks good (so far)!${ANSI_OFF}";
+		echo -e "\n$MESSAGE\n";
+fi;
+#
 #	Prompt if SteamCMD should be installed now ...
 #
 if [[ $NIKE_MODE == true ]]; then
@@ -349,4 +425,3 @@ fi;
 #
 #	... thats all folks!
 #
-
