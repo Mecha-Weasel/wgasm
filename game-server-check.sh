@@ -4,7 +4,7 @@
 #	Chedk for and automatically apply any available update to server(s).
 #	============================================================================
 #	Created:       2024-03-08, by Weasel.SteamID.155@gMail.com        
-#	Last modified: 2024-06-09, by Weasel.SteamID.155@gMail.com
+#	Last modified: 2024-06-13, by Weasel.SteamID.155@gMail.com
 #	----------------------------------------------------------------------------
 #
 #	Purpose:
@@ -59,15 +59,15 @@ fi;
 #
 while [ $# -gt 0 ]; do
 	#
-    #	Set gameserverid to current parameter ...
-    #
+	#	Set gameserverid to current parameter ...
+	#
 	GAMESERVERID=$1;
-    #
+	#
 	#	Determine script log file ...
 	#
 	SCRIPT_LOG_FILE="$LOGS_FOLDER/$GAMESERVERID-check.log";
 	ACTION_LOG_FILE="$LOGS_FOLDER/$GAMESERVERID-check-action.log";
-    #
+	#
 	#	Display start of stuff ...
 	#
 	source $SCRIPTS_FOLDER/include/include-outputbegin.inc;
@@ -95,8 +95,8 @@ while [ $# -gt 0 ]; do
 	STOP_SCRIPT="$SCRIPTS_FOLDER/game-server-stop.sh $GAMESERVERID";        # script to stop existing game-server instance.
 	INSTALL_SCRIPT="$SCRIPTS_FOLDER/game-server-install.sh $GAMESERVERID";  # script to install/update game-server content.
 	START_SCRIPT="$SCRIPTS_FOLDER/game-server-start.sh $GAMESERVERID";      # script to restart game-server instance.
-    BACKUP_SCRIPT="$SCRIPTS_FOLDER/game-server-backup.sh $GAMESERVERID";    # script to backup game-server instance.
-    EXCLUDE_SCRIPT="$SCRIPTS_FOLDER/game-server-exclude.sh $GAMESERVERID";  # script to exclude game-server instance.
+	BACKUP_SCRIPT="$SCRIPTS_FOLDER/game-server-backup.sh $GAMESERVERID";    # script to backup game-server instance.
+	EXCLUDE_SCRIPT="$SCRIPTS_FOLDER/game-server-exclude.sh $GAMESERVERID";  # script to exclude game-server instance.
 	UPDATE_SCRIPT="$SCRIPTS_FOLDER/game-server-update.sh $GAMESERVERID";    # script to update game-server instance.
 	CHECK_CONTROL_FILE="$BASE_FOLDER/update-in-progress.txt";               # file used to avoid conflicting update/install processes.
 	STEAM_INF_FILE="$BASE_FOLDER/steam.inf";                                # full path to Steam.inf file.
@@ -273,16 +273,16 @@ while [ $# -gt 0 ]; do
 	        echo "[_] Server installation readiness is INDETERMINATE!" >> "$SCRIPT_LOG_FILE";
 	fi;
 	#
-    #	Use 'shift' to move to next parameter passed ...
-    #
+	#	Display end of stuff ...
+	#
+source $SCRIPTS_FOLDER/include/include-outputend.inc;
+	#
+	#	Use 'shift' to move to next parameter passed ...
+	#
 	shift;
 	echo "";
-    echo "" >> "$SCRIPT_LOG_FILE";
+	echo "" >> "$SCRIPT_LOG_FILE";
 done;
-#
-#	Display end of stuff ...
-#
-source $SCRIPTS_FOLDER/include/include-outputend.inc;
 #
 #	... thats all folks!
 #

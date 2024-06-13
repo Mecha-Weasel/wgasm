@@ -4,7 +4,7 @@
 #	Restore 7-zip backups(s) created by the game-server-backup.sh script
 #	============================================================================
 #	Created:       2024-05-24, by Weasel.SteamID.155@gMail.com        
-#	Last modified: 2024-05-27, by Weasel.SteamID.155@gMail.com
+#	Last modified: 2024-06-13, by Weasel.SteamID.155@gMail.com
 #	----------------------------------------------------------------------------
 #	
 #	Purpose:
@@ -142,16 +142,16 @@ while [ $# -gt 0 ]; do
 			tree --dirsfirst $RESTORE_FOLDER 2>/dev/null >> "$SCRIPT_LOG_FILE";
 	fi;
 	#
-    #	Use 'shift' to move to next parameter passed ...
-    #
+	#	Display end of stuff ...
+	#
+	source $SCRIPTS_FOLDER/include/include-outputend.inc;
+	#
+	#	Use 'shift' to move to next parameter passed ...
+	#
 	shift;
 	echo "";
-    echo "" >> "$SCRIPT_LOG_FILE";
+	echo "" >> "$SCRIPT_LOG_FILE";
 done;
-#
-#	Display end of stuff ...
-#
-source $SCRIPTS_FOLDER/include/include-outputend.inc;
 #
 #	... thats all folks!
 #

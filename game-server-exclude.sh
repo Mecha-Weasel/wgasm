@@ -4,7 +4,7 @@
 #	Build backup exclusion list(s) for a specified game-server(s)
 #	============================================================================
 #	Created:       2024-03-06, by Weasel.SteamID.155@gMail.com        
-#	Last modified: 2024-05-28, by Weasel.SteamID.155@gMail.com
+#	Last modified: 2024-06-13, by Weasel.SteamID.155@gMail.com
 #	----------------------------------------------------------------------------
 #
 #	Purpose:
@@ -251,16 +251,16 @@ while [ $# -gt 0 ]; do
 		cat $EXCLUDE_LIST_FILE | more;
 	fi;
 	#
-    #	Use 'shift' to move to next parameter passed ...
-    #
+	#	Display end of stuff ...
+	#
+	source $SCRIPTS_FOLDER/include/include-outputend.inc;
+	#
+	#	Use 'shift' to move to next parameter passed ...
+	#
 	shift;
 	echo "";
-    echo "" >> "$SCRIPT_LOG_FILE";
+	echo "" >> "$SCRIPT_LOG_FILE";
 done;
-#
-#	Display end of stuff ...
-#
-source $SCRIPTS_FOLDER/include/include-outputend.inc;
 #
 #	... thats all folks!
 #
