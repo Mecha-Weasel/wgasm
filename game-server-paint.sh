@@ -4,7 +4,7 @@
 #	Paint a specified game-server, with a specified game-stencil
 #	============================================================================
 #	Created:       2024-05-26, by Weasel.SteamID.155@gMail.com        
-#	Last modified: 2024-05-31, by Weasel.SteamID.155@gMail.com
+#	Last modified: 2024-06-13, by Weasel.SteamID.155@gMail.com
 #	----------------------------------------------------------------------------
 #	
 #	Purpose:
@@ -113,12 +113,12 @@ echo -e "Game-server to 'paint' the stencil on: [ID=$GAMESERVERID]";
 echo -e "Game-server to 'paint' the stencil on: [ID=$GAMESERVERID]" >> "$SCRIPT_LOG_FILE";
 echo -e "Game-stencil to 'paint' with:          [ID=$GAMESTENCILID]";
 echo -e "Game-stencil to 'paint' with:          [ID=$GAMESTENCILID]" >> "$SCRIPT_LOG_FILE";
-echo -e "Tempory folder (for zipping process): $TEMP_FOLDER";
-echo -e "Tempory folder (for zipping process): $TEMP_FOLDER" >> "$SCRIPT_LOG_FILE";
-echo -e "Input File:                           $INPUT_FILE";
-echo -e "Input File:                           $INPUT_FILE" >> "$SCRIPT_LOG_FILE";
-echo -e "Paint Folder:                         $PAINT_FOLDER";
-echo -e "Paint Folder:                         $PAINT_FOLDER" >> "$SCRIPT_LOG_FILE";
+echo -e "Temp folder (for zipping process):     $TEMP_FOLDER";
+echo -e "Temp folder (for zipping process):     $TEMP_FOLDER" >> "$SCRIPT_LOG_FILE";
+echo -e "Input File:                            $INPUT_FILE";
+echo -e "Input File:                            $INPUT_FILE" >> "$SCRIPT_LOG_FILE";
+echo -e "Paint Folder:                          $PAINT_FOLDER";
+echo -e "Paint Folder:                          $PAINT_FOLDER" >> "$SCRIPT_LOG_FILE";
 echo -e "";
 echo -e "" >> "$SCRIPT_LOG_FILE";
 #
