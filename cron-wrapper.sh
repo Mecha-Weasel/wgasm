@@ -41,6 +41,28 @@ CRON_SCRIPTS_FOLDER="$SCRIPTS_FOLDER/cron";
 #
 CRON_SCRIPT=$1;
 #
+#	Validate that the requested script exists ...
+#
+if [ -e "$CRON_SCRIPTS_FOLDER/$CRON_SCRIPT" ]; then
+		#
+		#	Display an error message ...
+		#
+		MESSAGE="${ANSI_REDLT}$(figlet "ERROR:")${ANSI_OFF}\n";
+		MESSAGE+="${ANSI_WHITE}Specified script (${ANSI_REDLT}$CRON_SCRIPTS_FOLDER/$CRON_SCRIPT${ANSI_WHITE}) does not exist!${ANSI_OFF}";
+		echo -e "$MESSAGE";
+		if [[ $SCRIPT_LOG_FILE ]]; then
+			echo -e "$MESSAGE" | ansi2txt >> "$SCRIPT_LOG_FILE";
+		fi;
+		#
+		#	Display end of stuff ...
+		#
+		source $SCRIPTS_FOLDER/include/include-outputend.inc;
+		#
+		#	Exit returning an error code.
+		#
+		exit 1;
+fi;
+#
 #	Determine the cron check file that will be used to avoid collisions ...
 #
 CRON_CHECK_FILE="$CRON_SCRIPTS_FOLDER/cron-in-progress.txt";
@@ -68,7 +90,7 @@ if [ -e "$CRON_CHECK_FILE" ]; then
 		#	Display a notification that there
 		#	is already an update in progress ...
 		#
-		MESSAGE="${ANSI_REDLT}$(figlet "WARNING:")${ANSI_OFF}\n";
+		MESSAGE="${ANSI_YELLOW}$(figlet "WARNING:")${ANSI_OFF}\n";
 		MESSAGE+="${ANSI_WHITE}Another scheduled cron job is already in progress!${ANSI_OFF}  ${ANSI_WHITE}Aborting this script.${ANSI_OFF}";
 		echo -e "$MESSAGE";
 		if [[ $SCRIPT_LOG_FILE ]]; then
