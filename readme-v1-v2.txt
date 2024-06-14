@@ -18,14 +18,15 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 A lot has changed between the 1st generation (v1.x) and 2nd generation (v2.x)
-of these scripts.  This includes changes such as:
+of this system.  This includes changes such as:
 
-	* New default folder(s), and automatic folder detection.
+	* New default folder(s).
 	* New central configuration file for various options.
 	* Re-usable portions of code moved to "source include" files.
 	* Now driven by config file, and data "tables".
 	* Now has a script available the "prepare" the OS for installation.
 	* Now has a script that will perform the "install" (after OS prepared).
+	* Now has "wrapper" for reduce collisons of cron scripts.
 
 +-----------------------------------------------------------------------------+
 | Related Guide on Steam Community:                                           |
@@ -42,7 +43,7 @@ Several scripts are provided strictly for initial setup purposes, and to not
 perform any direct action on the game-servers themselves.  These include:
 
 * prepare-debian.sh          Run as "root", prepares OS for installation.
-* install-wgasm.sh  Run as "game-servers", installs the system.
+* install-wgasm.sh           Run as "game-servers", installs the system.
 * install-steamcmd.sh        Run as "game-servers", installs SteamCMD.
 * install-stencils.sh        Run as "game-servers", installs Stencils.
 
@@ -253,33 +254,38 @@ there are several possible consequences you need to keep in mind:
 Several scripts are provided strictly for diagnostic purposes, and to not
 perform any direct action on the game-servers themselves.  These include:
 
-* list-running.sh          Displays running GNU 'screen' game-servers, etc.
-* list-network.sh          Displays utilization of the network interface.
-* list-ports.sh            Lists what ports are in use, on the computer.
-* list-ports-game.sh       Lists what ports are in use, by all game-servers.
-* list-ports-hlds.sh       Lists what ports are in use, by GoldSrc-engine games.
-* list-ports-source.sh     Lists what ports are in use by Source-engine games.
-* game-types-list.sh       Lists what game-types are defined.
-* game-types-detail.sh     Displays details for a specific GameTypeID.
-* game-stencils-list-sh    Lists what stencils are defined.
-* game-stencils-detail.sh  Displays details for a specific GameStencilID.
+* list-running             Displays running GNU 'screen' game-servers, etc.
+* list-network             Displays utilization of the network interface.
+* list-ports               Lists what ports are in use, on the computer.
+* list-ports-game          Lists what ports are in use, by all game-servers.
+* list-ports-hlds          Lists what ports are in use, by GoldSrc-engine games.
+* list-ports-source        Lists what ports are in use by Source-engine games.
+* game-types-list          Lists what game-types are defined.
+* game-types-detail        Displays details for a specific GameTypeID.
+* game-stencils-list       Lists what stencils are defined.
+* game-stencils-detail     Displays details for a specific GameStencilID.
 * game-server-list         Lists what game-servers are defined.
-* game-server-detail.sh    Displays details for a specific GameServerID.
-* game-stencils-package.sh Rebuilds stencil zip files based on source files.
+* game-server-detail       Displays details for a specific GameServerID.
+* game-stencils-package    Rebuilds stencil zip files based on source files.
 
 The scripts that actually perform functions for game-servers include:
 
-* game-server-install.sh   Installs a game-server, based on a GameServerID.
-* game-server-exclude.sh   Builds backup exclusions, based on a GameServerID.
-* game-server-backup.sh    Backs-up a game-server, based on a GameServerID.
-* game-server-paint.sh     Paints a specific GameServerID with a GameStencilID.
-* game-server-run.sh       Runs a specific GameServerID interactively.
-* game-server-start.sh     Starts a GameServerID disconnected in background.
-* game-server-stop.sh      Stops a GameServerID if it is already started.
-* game-server-update.sh    Updates a GameServerID, restarting if needed.
-* game-server-check.sh     Gracefully apply any new updates for a GameServerID.
-* game-server-monitor.sh   Monitors a GameServerID, restarting if needed.
-* game-server-command.sh   Sends a command to a GameServerID's console.
+* game-server-install      Installs a game-server, based on a GameServerID.
+* game-server-exclude      Builds backup exclusions, based on a GameServerID.
+* game-server-backup       Backs-up a game-server, based on a GameServerID.
+* game-server-paint        Paints a specific GameServerID with a GameStencilID.
+* game-server-run          Runs a specific GameServerID interactively.
+* game-server-start        Starts a GameServerID disconnected in background.
+* game-server-stop         Stops a GameServerID if it is already started.
+* game-server-update       Updates a GameServerID, restarting if needed.
+* game-server-check        Gracefully apply any new updates for a GameServerID.
+* game-server-monitor      Monitors a GameServerID, restarting if needed.
+* game-server-command      Sends a command to a GameServerID's console.
+
+There are a few additional scripts, that are used for suppor functions:
+
+* cron-wrapper             Used to wrap cron scripts with collision avoidance.
+* game-stencils-package    Re-packages stencils from the source sub-folders.
 
 +-----------------------------------------------------------------------------+
 | Now driven by data "tables":                                                |
@@ -406,7 +412,7 @@ The game-types table now includes a LARGE selection of games that (in theory)
 may be installed and managed via these scripts.  The updated game-types table
 now includes:
 
-	* 42 games that LIKELY can be installed and managed with these scripts.
+	* 30+ games that LIKELY can be installed and managed with these scripts.
     * 10 of which have actually been installed and TESTED with these scripts.
     * 13 additional games listed, but that are identified as being UNUSABLE.
     * 11 are unsuable, because no Linux version of their server is available.
