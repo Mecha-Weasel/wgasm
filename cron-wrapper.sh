@@ -114,7 +114,7 @@ if [ -e "$CRON_CHECK_FILE" ]; then
 		echo -e "$CRON_SCRIPTS_FOLDER/$CRON_SCRIPT";
 		echo -e "$CRON_SCRIPTS_FOLDER/$CRON_SCRIPT" >> "$SCRIPT_LOG_FILE";
 		cd $CRON_SCRIPTS_FOLDER;
-		#$CRON_SCRIPTS_FOLDER/$CRON_SCRIPT;
+		$CRON_SCRIPTS_FOLDER/$CRON_SCRIPT;
 		#
 		#	Delete the cron check file, since we are done ...
 		#
