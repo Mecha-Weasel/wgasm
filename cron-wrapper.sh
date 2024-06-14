@@ -43,7 +43,7 @@ CRON_SCRIPT=$1;
 #
 #	Validate that the requested script exists ...
 #
-if [ -e "$CRON_SCRIPTS_FOLDER/$CRON_SCRIPT" ]; then
+if ! [ -e "$CRON_SCRIPTS_FOLDER/$CRON_SCRIPT" ]; then
 		#
 		#	Display an error message ...
 		#
@@ -116,7 +116,7 @@ if [ -e "$CRON_CHECK_FILE" ]; then
 		#
 		#	Delete the cron check file, since we are done ...
 		#
-		rm -f $CRON_SCRIPT;
+		rm -f $CRON_CHECK_FILE;
 fi;
 ls -lah $CRON_SCRIPTS_FOLDER;
 #
