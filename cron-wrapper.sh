@@ -47,7 +47,7 @@ if [ -e "$CRON_SCRIPTS_FOLDER/$CRON_SCRIPT" ]; then
 		#
 		#	Display an error message ...
 		#
-		MESSAGE="${ANSI_REDLT}$(figlet "ERROR:")${ANSI_OFF}\n";
+		MESSAGE="${ANSI_REDLT}$(figlet "Error:")${ANSI_OFF}\n";
 		MESSAGE+="${ANSI_WHITE}Specified script (${ANSI_REDLT}$CRON_SCRIPTS_FOLDER/$CRON_SCRIPT${ANSI_WHITE}) does not exist!${ANSI_OFF}";
 		echo -e "$MESSAGE";
 		if [[ $SCRIPT_LOG_FILE ]]; then
@@ -90,7 +90,7 @@ if [ -e "$CRON_CHECK_FILE" ]; then
 		#	Display a notification that there
 		#	is already an update in progress ...
 		#
-		MESSAGE="${ANSI_YELLOW}$(figlet "WARNING:")${ANSI_OFF}\n";
+		MESSAGE="${ANSI_YELLOW}$(figlet "Warning:")${ANSI_OFF}\n";
 		MESSAGE+="${ANSI_WHITE}Another scheduled cron job is already in progress!${ANSI_OFF}  ${ANSI_WHITE}Aborting this script.${ANSI_OFF}";
 		echo -e "$MESSAGE";
 		if [[ $SCRIPT_LOG_FILE ]]; then
