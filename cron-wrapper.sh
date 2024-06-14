@@ -29,6 +29,10 @@ source $SCRIPTS_FOLDER/include/include-ansi.inc;
 #	
 source $SCRIPTS_FOLDER/include/include-base.inc;
 #
+#	Determine script log file ...
+#
+SCRIPT_LOG_FILE="$LOGS_FOLDER/cron-wrapper.log";
+#
 #	Display start of stuff ...
 #
 source $SCRIPTS_FOLDER/include/include-outputbegin.inc;
@@ -84,7 +88,6 @@ echo -e "Cron Check-File:              $CRON_CHECK_FILE" >> "$SCRIPT_LOG_FILE";
 #
 #	Check if the check control file already exists ...
 #
-ls -lah $CRON_SCRIPTS_FOLDER;
 if [ -e "$CRON_CHECK_FILE" ]; then
 		#
 		#	Display a notification that there
@@ -103,7 +106,6 @@ if [ -e "$CRON_CHECK_FILE" ]; then
 		#
 		echo -e "Created at:  $(date)" > $CRON_CHECK_FILE;
 		echo -e "Created by:  $CRON_SCRIPT" >> $CRON_CHECK_FILE;
-		ls -lah $CRON_SCRIPTS_FOLDER;
 		#
 		#	Go ahead and run the requested script ...
 		#
@@ -118,7 +120,6 @@ if [ -e "$CRON_CHECK_FILE" ]; then
 		#
 		rm -f $CRON_CHECK_FILE;
 fi;
-ls -lah $CRON_SCRIPTS_FOLDER;
 #
 #	Display end of stuff ...
 #
