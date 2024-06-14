@@ -80,10 +80,6 @@ while [ $# -gt 0 ]; do
 	RESTORE_FOLDER="$SERVERS_INSTALL_FOLDER/$GAMESERVERID";
 	RESTORE_COMMAND="nice -n 19 7za x -mmt=off -aoa -o$WORKING_DIRECTORY -w$TEMP_FOLDER $INPUT_FILE"
 	#
-	#	Display start of stuff ...
-	#
-	source $SCRIPTS_FOLDER/include/include-outputbegin.inc;
-	#
 	#	Dispaly that is being restored ..
 	#
 	echo "Game-server (or backup config) to restore: [ID=$GAMESERVERID]";
