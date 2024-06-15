@@ -4,7 +4,7 @@
 #	Monitor game-server(s) screen session(s) for various fatal conditions
 #	============================================================================
 #	Created:	   2024-04-06, by Weasel.SteamID.155@gMail.com		
-#	Last modified: 2024-06-13, by Weasel.SteamID.155@gMail.com
+#	Last modified: 2024-06-14, by Weasel.SteamID.155@gMail.com
 #	----------------------------------------------------------------------------
 #	
 #	Purpose:
@@ -254,12 +254,14 @@ while [ $# -gt 0 ]; do
 			echo -e "$MESSAGE";
 			if [[ $SCRIPT_LOG_FILE ]]; then
 				echo -e "$MESSAGE" | ansi2txt >> "$SCRIPT_LOG_FILE";
+				echo -e "$MESSAGE" | ansi2txt >> "$ACTION_LOG_FILE";
 			fi;
 			#
 			#	Restart this game-server ...
 			#
 			echo "Restarting this game server ... ";
 			echo "Restarting this game server ... " >> "$SCRIPT_LOG_FILE";
+			echo "Restarting this game server ... " >> "$ACTION_LOG_FILE";
 			$START_SCRIPT;
 			#
 			#	Display end of stuff ...
@@ -283,12 +285,14 @@ while [ $# -gt 0 ]; do
 				echo -e "$MESSAGE";
 				if [[ $SCRIPT_LOG_FILE ]]; then
 					echo -e "$MESSAGE" | ansi2txt >> "$SCRIPT_LOG_FILE";
+					echo -e "$MESSAGE" | ansi2txt >> "$ACTION_LOG_FILE";
 				fi;
 				#
 				#	Restart this game-server ...
 				#
 				echo "Restarting this game server ... ";
 				echo "Restarting this game server ... " >> "$SCRIPT_LOG_FILE";
+				echo "Restarting this game server ... " >> "$ACTION_LOG_FILE";
 				$START_SCRIPT;
 				#
 				#	Display end of stuff ...
