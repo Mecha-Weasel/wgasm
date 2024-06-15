@@ -246,6 +246,10 @@ while [ $# -gt 0 ]; do
 		#	...	if a fatal-error is detected ...
 		#
 		if [[ $TAIL_OUTPUT_FATAL_ERROR_CHECK ]]; then
+		    #
+			#	Display start of ACTION ...
+			#
+			source $SCRIPTS_FOLDER/include/include-actionbegin.inc;
 			#
 			#	Display and log a warning ...
 			#
@@ -264,6 +268,10 @@ while [ $# -gt 0 ]; do
 			echo "Restarting this game server ... " >> "$ACTION_LOG_FILE";
 			$START_SCRIPT;
 			#
+			#	Display end of ACTION ...
+			#
+			source $SCRIPTS_FOLDER/include/include-actionend.inc;
+			#
 			#	Display end of stuff ...
 			#
 			source $SCRIPTS_FOLDER/include/include-outputend.inc;
@@ -277,6 +285,10 @@ while [ $# -gt 0 ]; do
 			#	... then check to see if there is recent GNU 'screen' log-file output ...
 			#
 			if [[ $STALE_LOG_CONDITION == true ]]; then
+		    #
+			#	Display start of ACTION ...
+			#
+			source $SCRIPTS_FOLDER/include/include-actionbegin.inc;
 				#
 				#	Display and log a warning ...
 				#
@@ -294,6 +306,10 @@ while [ $# -gt 0 ]; do
 				echo "Restarting this game server ... " >> "$SCRIPT_LOG_FILE";
 				echo "Restarting this game server ... " >> "$ACTION_LOG_FILE";
 				$START_SCRIPT;
+				#
+				#	Display end of ACTION ...
+				#
+				source $SCRIPTS_FOLDER/include/include-actionend.inc;
 				#
 				#	Display end of stuff ...
 				#
