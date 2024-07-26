@@ -4,7 +4,7 @@
 #	Script to install wGASM ...
 #	============================================================================
 #	Created:       2024-05-31, by Weasel.SteamID.155@gMail.com
-#	Last modified: 2024-06-13, by Weasel.SteamID.155@gMail.com
+#	Last modified: 2024-07-26, by Weasel.SteamID.155@gMail.com
 #	----------------------------------------------------------------------------
 #	__        ___    ____  _   _ ___ _   _  ____
 #	\ \      / / \  |  _ \| \ | |_ _| \ | |/ ___|_
@@ -228,13 +228,13 @@ fi;
 #
 echo -e "Deploying data tables ...";
 if [ ! -f $HOME/wgasm/data/game-types.tsv ]; then
-	cp -f $HOME/wgasm/data/game-types-example.tsv $HOME/wgasm/data/game-types.tsv;
+	cp -f $HOME/wgasm/data/game-types.example.tsv $HOME/wgasm/data/game-types.tsv;
 fi;
 if [ ! -f $HOME/wgasm/data/game-stencils.tsv ]; then
-	cp -f $HOME/wgasm/data/game-stencils-example.tsv $HOME/wgasm/data/game-stencils.tsv;
+	cp -f $HOME/wgasm/data/game-stencils.example.tsv $HOME/wgasm/data/game-stencils.tsv;
 fi;
 if [ ! -f $HOME/wgasm/data/game-servers.tsv ]; then
-	cp -f $HOME/wgasm/data/game-servers-example.tsv $HOME/wgasm/data/game-servers.tsv;
+	cp -f $HOME/wgasm/data/game-servers.example.tsv $HOME/wgasm/data/game-servers.tsv;
 fi;
 #
 #	If the recommended "webmin" lists do not exist yet,
