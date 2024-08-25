@@ -14,7 +14,7 @@ wget -O prepare-debian.sh https://github.com/Mecha-Weasel/wgasm/raw/main/prepare
   
 chmod +x prepare-debian.sh;
   
-sudo ./prepare-debian.sh;
+sudo ./prepare-debian.sh --nike;
 
 
 
@@ -26,4 +26,4 @@ wget -O install-wgasm.sh https://github.com/Mecha-Weasel/wgasm/raw/main/install-
   
 chmod +x install-wgasm.sh;
   
-./install-wgasm.sh;
+./install-wgasm.sh --nike;
