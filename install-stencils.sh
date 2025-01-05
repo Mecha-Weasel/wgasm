@@ -39,11 +39,11 @@ echo -e "Stencils folder:              $STENCILS_FOLDER";
 #	Download and install example Stencils ...
 #
 STENCILS_FILE="stencils-latest.tar.gz";
-STENCILS_DOWNLOAD="$(cat ./stencils-dropbox.url)";
-#STENCILS_DOWNLOAD="$(cat ./stencils-archive.url)";
+#STENCILS_DOWNLOAD="$(cat ./stencils-dropbox.url)";
+STENCILS_DOWNLOAD="$(cat ./stencils-archive.url)";
 cd $STENCILS_FOLDER 2> /dev/null > /dev/null;
 echo -e "";
-echo -e "Downloading $STENCILS_FILE from DropBox (this may take a long time) ...";
+echo -e "Downloading $STENCILS_FILE from $STENCILS_DOWNLOAD (this may take a long time) ...";
 wget --no-check-certificate -o /dev/null -O $STENCILS_FILE $STENCILS_DOWNLOAD;wait;
 if [[ "$?" -gt 0 ]]; then
 	TEST_ERROR_CHECK=true;
