@@ -4,7 +4,7 @@
 #	Install example stencils (using folder specified in the config file)
 #	============================================================================
 #	Created:       2024-06-04, by Weasel.SteamID.155@gMail.com
-#	Last modified: 2024-06-13, by Weasel.SteamID.155@gMail.com
+#	Last modified: 2025-01-04, by Weasel.SteamID.155@gMail.com
 #	----------------------------------------------------------------------------
 #
 #		Figure-out where the scripts folder is located ...
@@ -39,8 +39,8 @@ echo -e "Stencils folder:              $STENCILS_FOLDER";
 #	Download and install example Stencils ...
 #
 STENCILS_FILE="stencils-latest.tar.gz";
-#STENCILS_DOWNLOAD="https://www.dropbox.com/scl/fi/xoju4edvpawf53795v7mq/stencils-latest.tar.gz?rlkey=ff0cmv21spjffpxss0smr4zve&st=zjmcm2tc&&dl=1";
 STENCILS_DOWNLOAD="$(cat ./stencils-dropbox.url)";
+#STENCILS_DOWNLOAD="$(cat ./stencils-archive.url)";
 cd $STENCILS_FOLDER 2> /dev/null > /dev/null;
 echo -e "";
 echo -e "Downloading $STENCILS_FILE from DropBox (this may take a long time) ...";
