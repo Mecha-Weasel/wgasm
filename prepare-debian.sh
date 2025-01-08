@@ -206,7 +206,7 @@ sudo apt-get install -y libstdc++6 libstdc++6:i386 lib32gcc-s1 ncompress bzip2;
 #	Required by scripts:
 #
 echo -e "\n${ANSI_BLUELT}INSTALLING:${ANSI_WHITE} Required by scripts (Many probably already installed)${ANSI_OFF} ...";
-sudo apt-get install -y gawk git grep tree wget curl git htop screen net-tools nicstat bind9-dnsutils p7zip-full zip unzip tar dialog figlet colorized-logs dos2unix;
+sudo apt-get install -y gawk git grep tree wget curl git htop screen net-tools bind9-dnsutils p7zip-full zip unzip tar dialog figlet colorized-logs dos2unix;
 #
 #	Testing that various required commands/utilities work now ...
 #
@@ -243,7 +243,6 @@ echo -e -n "Testing 'dialog':      ";dialog --help &> /dev/null && echo -e "${AN
 echo -e -n "Testing 'dos2unix':    ";echo -e "test" | dos2unix &> /dev/null && echo -e "${ANSI_GREENLT}Pass.${ANSI_OFF}" || { echo -e "${ANSI_REDLT}FAIL!${ANSI_OFF}"; TEST_ERROR_CHECK=true; };
 echo -e -n "Testing 'ansi2txt':    ";echo -e "test" | ansi2txt &> /dev/null && echo -e "${ANSI_GREENLT}Pass.${ANSI_OFF}" || { echo -e "${ANSI_REDLT}FAIL!${ANSI_OFF}"; TEST_ERROR_CHECK=true; };
 echo -e -n "Testing 'figlet':      ";figlet "test" &> /dev/null && echo -e "${ANSI_GREENLT}Pass.${ANSI_OFF}" || { echo -e "${ANSI_REDLT}FAIL!${ANSI_OFF}"; TEST_ERROR_CHECK=true; };
-echo -e -n "Testing 'nicstat':     ";nicstat &> /dev/null && echo -e "${ANSI_GREENLT}Pass.${ANSI_OFF}" || { echo -e "${ANSI_REDLT}FAIL!${ANSI_OFF}"; TEST_ERROR_CHECK=true; };
 echo -e -n "Testing 'netstat':     ";netstat --help &> /dev/null && echo -e "${ANSI_GREENLT}Pass.${ANSI_OFF}" || { echo -e "${ANSI_REDLT}FAIL!${ANSI_OFF}"; TEST_ERROR_CHECK=true; };
 echo -e -n "Testing 'dig':         ";dig -h &> /dev/null && echo -e "${ANSI_GREENLT}Pass.${ANSI_OFF}" || { echo -e "${ANSI_REDLT}FAIL!${ANSI_OFF}"; TEST_ERROR_CHECK=true; };
 #

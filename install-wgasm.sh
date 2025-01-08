@@ -4,7 +4,7 @@
 #	Script to install wGASM ...
 #	============================================================================
 #	Created:       2024-05-31, by Weasel.SteamID.155@gMail.com
-#	Last modified: 2024-07-26, by Weasel.SteamID.155@gMail.com
+#	Last modified: 2025-01-07, by Weasel.SteamID.155@gMail.com
 #	----------------------------------------------------------------------------
 #	__        ___    ____  _   _ ___ _   _  ____
 #	\ \      / / \  |  _ \| \ | |_ _| \ | |/ ___|_
@@ -149,7 +149,6 @@ echo -e -n "Testing 'dialog':      ";dialog --help &> /dev/null && echo -e "${AN
 echo -e -n "Testing 'dos2unix':    ";echo -e "test" | dos2unix &> /dev/null && echo -e "${ANSI_GREENLT}Pass.${ANSI_OFF}" || { echo -e "${ANSI_REDLT}FAIL!${ANSI_OFF}"; TEST_ERROR_CHECK=true; };
 echo -e -n "Testing 'ansi2txt':    ";echo -e "test" | ansi2txt &> /dev/null && echo -e "${ANSI_GREENLT}Pass.${ANSI_OFF}" || { echo -e "${ANSI_REDLT}FAIL!${ANSI_OFF}"; TEST_ERROR_CHECK=true; };
 echo -e -n "Testing 'figlet':      ";figlet "test" &> /dev/null && echo -e "${ANSI_GREENLT}Pass.${ANSI_OFF}" || { echo -e "${ANSI_REDLT}FAIL!${ANSI_OFF}"; TEST_ERROR_CHECK=true; };
-echo -e -n "Testing 'nicstat':     ";nicstat &> /dev/null && echo -e "${ANSI_GREENLT}Pass.${ANSI_OFF}" || { echo -e "${ANSI_REDLT}FAIL!${ANSI_OFF}"; TEST_ERROR_CHECK=true; };
 echo -e -n "Testing 'netstat':     ";netstat --help &> /dev/null && echo -e "${ANSI_GREENLT}Pass.${ANSI_OFF}" || { echo -e "${ANSI_REDLT}FAIL!${ANSI_OFF}"; TEST_ERROR_CHECK=true; };
 echo -e -n "Testing 'dig':         ";dig -h &> /dev/null && echo -e "${ANSI_GREENLT}Pass.${ANSI_OFF}" || { echo -e "${ANSI_REDLT}FAIL!${ANSI_OFF}"; TEST_ERROR_CHECK=true; };
 #
