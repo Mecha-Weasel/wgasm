@@ -4,7 +4,7 @@
 #	Script to update OS (Debian) packages required for these scripts
 #	============================================================================
 #	Created:       2024-05-31, by Weasel.SteamID.155@gMail.com
-#	Last modified: 2024-06-11, by Weasel.SteamID.155@gMail.com
+#	Last modified: 2025-01-07, by Weasel.SteamID.155@gMail.com
 #	----------------------------------------------------------------------------
 #	__        ___    ____  _   _ ___ _   _  ____
 #	\ \      / / \  |  _ \| \ | |_ _| \ | |/ ___|_
@@ -104,7 +104,7 @@ fi;
 #	Verify that this is a Debian-family Linux distribution ...
 #
 COMPATIBLE_OS=false
-OS_DETECTION_COMMAND="uname -rv";
+OS_DETECTION_COMMAND="uname -a";
 OS_DETECTION=$($OS_DETECTION_COMMAND);
 echo "Distro Detection Command:                    $OS_DETECTION_COMMAND";
 echo "Distro Detection Output (Mixed-Case):        $OS_DETECTION";
