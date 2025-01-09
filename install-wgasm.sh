@@ -143,14 +143,14 @@ echo -e -n "Testing 'screen':      ";screen -v &> /dev/null && echo -e "${ANSI_G
 echo -e -n "Testing '7za':         ";7za --help &> /dev/null && echo -e "${ANSI_GREENLT}Pass.${ANSI_OFF}" || { echo -e "${ANSI_REDLT}FAIL!${ANSI_OFF}"; TEST_ERROR_CHECK=true; };
 echo -e -n "Testing 'zip':         ";zip --help &> /dev/null && echo -e "${ANSI_GREENLT}Pass.${ANSI_OFF}" || { echo -e "${ANSI_REDLT}FAIL!${ANSI_OFF}"; TEST_ERROR_CHECK=true; };
 echo -e -n "Testing 'unzip':       ";unzip --help &> /dev/null && echo -e "${ANSI_GREENLT}Pass.${ANSI_OFF}" || { echo -e "${ANSI_REDLT}FAIL!${ANSI_OFF}"; TEST_ERROR_CHECK=true; };
-echo -e -n "Testing 'uncompress':  ";uncompress --help &> /dev/null && echo -e "${ANSI_GREENLT}Pass.${ANSI_OFF}" || { echo -e "${ANSI_REDLT}FAIL!${ANSI_OFF}"; TEST_ERROR_CHECK=true; };
+echo -e -n "Testing 'uncompress':  ";uncompress -h &> /dev/null && echo -e "${ANSI_GREENLT}Pass.${ANSI_OFF}" || { echo -e "${ANSI_REDLT}FAIL!${ANSI_OFF}"; TEST_ERROR_CHECK=true; };
 echo -e -n "Testing 'bzip2':       ";bzip2 --help &> /dev/null && echo -e "${ANSI_GREENLT}Pass.${ANSI_OFF}" || { echo -e "${ANSI_REDLT}FAIL!${ANSI_OFF}"; TEST_ERROR_CHECK=true; };
 echo -e -n "Testing 'dialog':      ";dialog --help &> /dev/null && echo -e "${ANSI_GREENLT}Pass.${ANSI_OFF}" || { echo -e "${ANSI_REDLT}FAIL!${ANSI_OFF}"; TEST_ERROR_CHECK=true; };
 echo -e -n "Testing 'dos2unix':    ";echo -e "test" | dos2unix &> /dev/null && echo -e "${ANSI_GREENLT}Pass.${ANSI_OFF}" || { echo -e "${ANSI_REDLT}FAIL!${ANSI_OFF}"; TEST_ERROR_CHECK=true; };
-echo -e -n "Testing 'ansi2txt':    ";echo -e "test" | ansi2txt &> /dev/null && echo -e "${ANSI_GREENLT}Pass.${ANSI_OFF}" || { echo -e "${ANSI_REDLT}FAIL!${ANSI_OFF}"; TEST_ERROR_CHECK=true; };
 echo -e -n "Testing 'figlet':      ";figlet "test" &> /dev/null && echo -e "${ANSI_GREENLT}Pass.${ANSI_OFF}" || { echo -e "${ANSI_REDLT}FAIL!${ANSI_OFF}"; TEST_ERROR_CHECK=true; };
 echo -e -n "Testing 'netstat':     ";netstat --help &> /dev/null && echo -e "${ANSI_GREENLT}Pass.${ANSI_OFF}" || { echo -e "${ANSI_REDLT}FAIL!${ANSI_OFF}"; TEST_ERROR_CHECK=true; };
 echo -e -n "Testing 'dig':         ";dig -h &> /dev/null && echo -e "${ANSI_GREENLT}Pass.${ANSI_OFF}" || { echo -e "${ANSI_REDLT}FAIL!${ANSI_OFF}"; TEST_ERROR_CHECK=true; };
+echo -e -n "Testing 'ansi2txt':    ";echo -e "test" | ansi2txt &> /dev/null && echo -e "${ANSI_GREENLT}Pass.${ANSI_OFF}" || { echo -e "${ANSI_REDLT}FAIL!${ANSI_OFF}"; TEST_ERROR_CHECK=true; };
 #
 #	If any of thsoe checks failed, display an error messsage ...
 #

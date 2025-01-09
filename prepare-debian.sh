@@ -4,7 +4,7 @@
 #	Script to update OS (Debian) packages required for these scripts
 #	============================================================================
 #	Created:       2024-05-31, by Weasel.SteamID.155@gMail.com
-#	Last modified: 2025-01-07, by Weasel.SteamID.155@gMail.com
+#	Last modified: 2025-01-09, by Weasel.SteamID.155@gMail.com
 #	----------------------------------------------------------------------------
 #	__        ___    ____  _   _ ___ _   _  ____
 #	\ \      / / \  |  _ \| \ | |_ _| \ | |/ ___|_
@@ -208,6 +208,10 @@ sudo apt-get install -y libstdc++6 libstdc++6:i386 lib32gcc-s1 ncompress bzip2;
 echo -e "\n${ANSI_BLUELT}INSTALLING:${ANSI_WHITE} Required by scripts (Many probably already installed)${ANSI_OFF} ...";
 sudo apt-get install -y gawk git grep tree wget curl git htop screen net-tools bind9-dnsutils p7zip-full zip unzip tar dialog figlet colorized-logs dos2unix;
 #
+#	Required for ANSI-color processsing (and removal):
+#
+sudo apt-get install -y olorized-logs;
+#
 #	Testing that various required commands/utilities work now ...
 #
 #		Define some stuff ..
@@ -237,14 +241,14 @@ echo -e -n "Testing 'screen':      ";screen -v &> /dev/null && echo -e "${ANSI_G
 echo -e -n "Testing '7za':         ";7za --help &> /dev/null && echo -e "${ANSI_GREENLT}Pass.${ANSI_OFF}" || { echo -e "${ANSI_REDLT}FAIL!${ANSI_OFF}"; TEST_ERROR_CHECK=true; };
 echo -e -n "Testing 'zip':         ";zip --help &> /dev/null && echo -e "${ANSI_GREENLT}Pass.${ANSI_OFF}" || { echo -e "${ANSI_REDLT}FAIL!${ANSI_OFF}"; TEST_ERROR_CHECK=true; };
 echo -e -n "Testing 'unzip':       ";unzip --help &> /dev/null && echo -e "${ANSI_GREENLT}Pass.${ANSI_OFF}" || { echo -e "${ANSI_REDLT}FAIL!${ANSI_OFF}"; TEST_ERROR_CHECK=true; };
-echo -e -n "Testing 'uncompress':  ";uncompress --help &> /dev/null && echo -e "${ANSI_GREENLT}Pass.${ANSI_OFF}" || { echo -e "${ANSI_REDLT}FAIL!${ANSI_OFF}"; TEST_ERROR_CHECK=true; };
+echo -e -n "Testing 'uncompress':  ";uncompress -h &> /dev/null && echo -e "${ANSI_GREENLT}Pass.${ANSI_OFF}" || { echo -e "${ANSI_REDLT}FAIL!${ANSI_OFF}"; TEST_ERROR_CHECK=true; };
 echo -e -n "Testing 'bzip2':       ";bzip2 --help &> /dev/null && echo -e "${ANSI_GREENLT}Pass.${ANSI_OFF}" || { echo -e "${ANSI_REDLT}FAIL!${ANSI_OFF}"; TEST_ERROR_CHECK=true; };
 echo -e -n "Testing 'dialog':      ";dialog --help &> /dev/null && echo -e "${ANSI_GREENLT}Pass.${ANSI_OFF}" || { echo -e "${ANSI_REDLT}FAIL!${ANSI_OFF}"; TEST_ERROR_CHECK=true; };
 echo -e -n "Testing 'dos2unix':    ";echo -e "test" | dos2unix &> /dev/null && echo -e "${ANSI_GREENLT}Pass.${ANSI_OFF}" || { echo -e "${ANSI_REDLT}FAIL!${ANSI_OFF}"; TEST_ERROR_CHECK=true; };
-echo -e -n "Testing 'ansi2txt':    ";echo -e "test" | ansi2txt &> /dev/null && echo -e "${ANSI_GREENLT}Pass.${ANSI_OFF}" || { echo -e "${ANSI_REDLT}FAIL!${ANSI_OFF}"; TEST_ERROR_CHECK=true; };
 echo -e -n "Testing 'figlet':      ";figlet "test" &> /dev/null && echo -e "${ANSI_GREENLT}Pass.${ANSI_OFF}" || { echo -e "${ANSI_REDLT}FAIL!${ANSI_OFF}"; TEST_ERROR_CHECK=true; };
 echo -e -n "Testing 'netstat':     ";netstat --help &> /dev/null && echo -e "${ANSI_GREENLT}Pass.${ANSI_OFF}" || { echo -e "${ANSI_REDLT}FAIL!${ANSI_OFF}"; TEST_ERROR_CHECK=true; };
 echo -e -n "Testing 'dig':         ";dig -h &> /dev/null && echo -e "${ANSI_GREENLT}Pass.${ANSI_OFF}" || { echo -e "${ANSI_REDLT}FAIL!${ANSI_OFF}"; TEST_ERROR_CHECK=true; };
+echo -e -n "Testing 'ansi2txt':    ";echo -e "test" | ansi2txt &> /dev/null && echo -e "${ANSI_GREENLT}Pass.${ANSI_OFF}" || { echo -e "${ANSI_REDLT}FAIL!${ANSI_OFF}"; TEST_ERROR_CHECK=true; };
 #
 #	If any of thsoe checks failed, display an error messsage ...
 #
@@ -345,7 +349,7 @@ if [[ $WEBMIN_CHECK == false ]]; then
 				;;
 			n|N|no|No|NO)
 				#
-				#	Do not install the Webmin, but warn about creating it ...
+				#	Do not install Webmin, but warn about creating it ...
 				#
 				MESSAGE="${ANSI_YELLOW}WARNING:${ANSI_OFF}\n";
 				MESSAGE+="${ANSI_WHITE}Okay, whatever - if you want to make your life harder than it needs to be!${ANSI_OFF}\n";
@@ -496,12 +500,12 @@ if [[ $TEST_USER_EXISTS == false ]]; then
 		echo -e "\n$MESSAGE\n";
 fi;
 #
-#	If game-servers user (now) exists, offer to download and run the installation script as that user ...
+#	If game-servers user (now) exists, offer to download the installation script as that user ...
 #
 sudo id game-servers &> /dev/null && TEST_USER_EXISTS=true || TEST_USER_EXISTS=false;
 if [[ $TEST_USER_EXISTS == true ]]; then
 		#
-		#	Offer to perform the installion the "wgasm" system, as the game-servers user ...
+		#	Offer to download the installer for the "wgasm" system, as the game-servers user ...
 		#
 		if [[ $NIKE_MODE == true ]]; then
 				PROMPT_INPUT="nike";
@@ -537,7 +541,7 @@ if [[ $TEST_USER_EXISTS == true ]]; then
 				;;
 			n|N|no|No|NO)
 				#
-				#	Do not install the "wgasm" system, but warn about creating it ...
+				#	Do not download the "wgasm" installer, but warn about creating it ...
 				#
 				MESSAGE="${ANSI_YELLOW}WARNING:${ANSI_OFF}\n";
 				MESSAGE+="${ANSI_WHITE}Okay, whatever - just remember to install it later yourself!${ANSI_OFF}\n";
@@ -556,7 +560,7 @@ if [[ $TEST_USER_EXISTS == true ]]; then
 		esac;
 	else
 		#
-		#	Skip installing the "wgasm" system if the game-servers user does not exist ...
+		#	Skip downloading "wgasm" installer if the game-servers user does not exist ...
 		#
 		MESSAGE="${ANSI_GREENLT}Update:${ANSI_OFF}\n";
 		MESSAGE+="Since \"game-servers\" does not exist, skipping offering to install the \"wgasm\" system.";
@@ -854,3 +858,4 @@ fi;
 #
 #	... thats all folks!
 #
+
