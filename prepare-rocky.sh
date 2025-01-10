@@ -114,14 +114,18 @@ if [[ $OS_DETECTION == *"rocky"* ]]; then
     echo -e "Distro Detected:                             ${ANSI_GREENLT}Rocky${ANSI_OFF}";
   COMPATIBLE_OS=true
 fi;
-#if [[ $OS_DETECTION == *"ubuntu"* ]]; then
-#       echo -e "Distro Detected:                             ${ANSI_GREENLT}Ubuntu${ANSI_OFF}";
-#       COMPATIBLE_OS=true
-#fi;
-#if [[ $OS_DETECTION == *"mint"* ]]; then
-#       echo -e "Distro Detected:                             ${ANSI_GREENLT}Mint${ANSI_OFF}";
-#       COMPATIBLE_OS=true
-#fi;
+if [[ $OS_DETECTION == *"fedora"* ]]; then
+       echo -e "Distro Detected:                             ${ANSI_GREENLT}Fedora${ANSI_OFF}";
+       COMPATIBLE_OS=true
+fi;
+if [[ $OS_DETECTION == *"rhel"* ]]; then
+       echo -e "Distro Detected:                             ${ANSI_GREENLT}RHEL${ANSI_OFF}";
+       COMPATIBLE_OS=true
+fi;
+if [[ $OS_DETECTION == *"centos"* ]]; then
+       echo -e "Distro Detected:                             ${ANSI_GREENLT}CentOS${ANSI_OFF}";
+       COMPATIBLE_OS=true
+fi;
 if ! [[ $COMPATIBLE_OS == true ]]; then
         MESSAGE="${ANSI_REDLT}ERROR:${ANSI_OFF}\n";
         MESSAGE+="${ANSI_WHITE}A compatible Linux distribution (RedHat family) has NOT been detected!${ANSI_OFF}";
