@@ -181,7 +181,7 @@ fi;
 #       Latest updates for existing packages:
 #
 echo -e "\n${ANSI_BLUELT}INSTALLING:${ANSI_WHITE} Latest updates for existing packages${ANSI_OFF} ...";
-sudo dnf update;
+sudo dnf update -y;
 sudo dnf upgrade -y;
 sudo dnf autoremove -y;
 #
