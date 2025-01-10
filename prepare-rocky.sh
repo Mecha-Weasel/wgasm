@@ -198,20 +198,30 @@ sudo dnf install -y openssh-server coreutils sudo nano;
 echo -e "\n${ANSI_BLUELT}INSTALLING:${ANSI_WHITE} Required or recommended if using Webmin${ANSI_OFF} ..";
 sudo dnf install -y ntp sntp ntpdate apt-transport-https dialog xmlstarlet iptables;
 #
-#       Required for SteamCMD and/or game-servers:
-#
-echo -e "\n${ANSI_BLUELT}INSTALLING:${ANSI_WHITE} Required by SteamCMD - or HLDS / SrcDS, etc.${ANSI_OFF} ...";
-sudo dnf install -y libstdc++6 libstdc++6:i386 lib32gcc-s1 ncompress bzip2;
-#
 #       Required by scripts:
 #
 echo -e "\n${ANSI_BLUELT}INSTALLING:${ANSI_WHITE} Required by scripts (Many probably already installed)${ANSI_OFF} ...";
 sudo dnf install -y gawk git grep tree wget curl git htop screen net-tools bind9-dnsutils p7zip-full zip unzip tar dialog figlet colorized-logs dos2unix;
 #
-#	Required for ANSI-color processsing (and removal):
+#	    Required for ANSI-color processsing (and removal):
 #
 wget https://github.com/gabe565/ansi2txt/releases/download/v0.0.1/ansi2txt_0.0.1_linux_amd64.rpm
-sudo dns install ./ansi2txt_0.0.1_linux_amd64.rpm;
+sudo dnf install -y ./ansi2txt_0.0.1_linux_amd64.rpm;
+#
+#       Useful for SteamCMD and/or game-servers:
+#
+echo -e "\n${ANSI_BLUELT}INSTALLING:${ANSI_WHITE} Required by SteamCMD - or HLDS / SrcDS, etc.${ANSI_OFF} ...";
+sudo dnf install -y ncompress bzip2;
+#
+#       More stuff required by some game-servers, etc.:
+#
+sudo dnf install -y libstdc++6 libstdc++6:i386 lib32gcc-s1 ncurses ncurses-libs libcurl;
+sudo ln -s "/usr/lib64/libncurses.so" "/usr/lib64/libncurses.so.5";
+sudo ln -s "/usr/lib64/libtinfo.so" "/usr/lib64/libtinfo.so.5";
+sudo ln -s "/usr/lib64/libcurl.so" "/usr/lib64/libcurl-gnutls.so.4"
+sudo ln -s "/usr/lib/libncurses.so" "/usr/lib/libncurses.so.5";
+sudo ln -s "/usr/lib/libtinfo.so" "/usr/lib/libtinfo.so.5";
+sudo ln -s "/usr/lib/libcurl.so" "/usr/lib/libcurl-gnutls.so.4"
 #
 #       Testing that various required commands/utilities work now ...
 #
