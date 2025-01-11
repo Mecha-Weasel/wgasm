@@ -118,12 +118,12 @@ if [[ $OS_DETECTION == *"fedora"* ]]; then
        echo -e "Distro Detected:                             ${ANSI_GREENLT}Fedora${ANSI_OFF}";
        COMPATIBLE_OS=true
 fi;
-if [[ $OS_DETECTION == *"rhel"* ]]; then
-       echo -e "Distro Detected:                             ${ANSI_GREENLT}RHEL${ANSI_OFF}";
-       COMPATIBLE_OS=true
-fi;
 if [[ $OS_DETECTION == *"centos"* ]]; then
        echo -e "Distro Detected:                             ${ANSI_GREENLT}CentOS${ANSI_OFF}";
+       COMPATIBLE_OS=true
+fi;
+if [[ $OS_DETECTION == *".el"* ]]; then
+       echo -e "Distro Detected:                             ${ANSI_GREENLT}RHEL${ANSI_OFF}";
        COMPATIBLE_OS=true
 fi;
 if ! [[ $COMPATIBLE_OS == true ]]; then
