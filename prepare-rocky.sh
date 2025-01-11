@@ -210,7 +210,7 @@ sudo dnf install -y ntp sntp ntpdate apt-transport-https dialog xmlstarlet iptab
 #       Required by scripts:
 #
 echo -e "\n${ANSI_BLUELT}INSTALLING:${ANSI_WHITE} Required by scripts (Many probably already installed)${ANSI_OFF} ...";
-sudo dnf install -y gawk git grep tree wget curl git htop screen net-tools bind9-dnsutils p7zip-full zip unzip tar dialog figlet colorized-logs dos2unix;
+sudo dnf install -y screen gawk git grep tree wget curl git htop net-tools bind9-dnsutils p7zip-full zip unzip tar dialog figlet colorized-logs dos2unix;
 #
 #	    Required for ANSI-color processsing (and removal):
 #
