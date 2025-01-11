@@ -125,10 +125,11 @@ fi;
 if [[ $OS_DETECTION == *".el"* ]]; then
        echo -e "Distro Detected:                             ${ANSI_GREENLT}RHEL${ANSI_OFF}";
        COMPATIBLE_OS=true
-
+        #
+        #   Enable EPEL repo for RHEL ...
+        #
         subscription-manager repos --enable codeready-builder-for-rhel-9-$(arch)-rpms;
         dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm;
-
 fi;
 if ! [[ $COMPATIBLE_OS == true ]]; then
         MESSAGE="${ANSI_REDLT}ERROR:${ANSI_OFF}\n";
