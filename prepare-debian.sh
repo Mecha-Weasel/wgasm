@@ -4,7 +4,7 @@
 #	Script to update OS (Debian) packages required for these scripts
 #	============================================================================
 #	Created:       2024-05-31, by Weasel.SteamID.155@gMail.com
-#	Last modified: 2025-01-09, by Weasel.SteamID.155@gMail.com
+#	Last modified: 2025-01-11, by Weasel.SteamID.155@gMail.com
 #	----------------------------------------------------------------------------
 #	__        ___    ____  _   _ ___ _   _  ____
 #	\ \      / / \  |  _ \| \ | |_ _| \ | |/ ___|_
@@ -206,7 +206,7 @@ sudo apt-get install -y libstdc++6 libstdc++6:i386 lib32gcc-s1 ncompress bzip2;
 #	Required by scripts:
 #
 echo -e "\n${ANSI_BLUELT}INSTALLING:${ANSI_WHITE} Required by scripts (Many probably already installed)${ANSI_OFF} ...";
-sudo apt-get install -y gawk git grep tree wget curl git htop screen net-tools bind9-dnsutils p7zip-full zip unzip tar dialog figlet colorized-logs dos2unix;
+sudo apt-get install -y gawk git grep tree wget curl git htop screen net-tools bind9-dnsutils p7zip-full zip unzip tar dialog figlet colorized-logs dos2unix bsdmainutils;
 #
 #	Required for ANSI-color processsing (and removal):
 #
