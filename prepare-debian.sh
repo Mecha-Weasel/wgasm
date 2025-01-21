@@ -4,7 +4,7 @@
 #	Script to update OS (Debian) packages required for these scripts
 #	============================================================================
 #	Created:       2024-05-31, by Weasel.SteamID.155@gMail.com
-#	Last modified: 2025-01-11, by Weasel.SteamID.155@gMail.com
+#	Last modified: 2025-01-20, by Weasel.SteamID.155@gMail.com
 #	----------------------------------------------------------------------------
 #	__        ___    ____  _   _ ___ _   _  ____
 #	\ \      / / \  |  _ \| \ | |_ _| \ | |/ ___|_
@@ -113,6 +113,10 @@ echo "Distro Detection Output (Lower-Case):        $OS_DETECTION";
 if [[ $OS_DETECTION == *"debian"* ]]; then
     echo -e "Distro Detected:                             ${ANSI_GREENLT}Debian${ANSI_OFF}";
   COMPATIBLE_OS=true
+fi;
+if [[ $OS_DETECTION == *"elxr"* ]]; then
+	echo -e "Distro Detected:                             ${ANSI_GREENLT}eLxr${ANSI_OFF}";
+	COMPATIBLE_OS=true
 fi;
 if [[ $OS_DETECTION == *"ubuntu"* ]]; then
 	echo -e "Distro Detected:                             ${ANSI_GREENLT}Ubuntu${ANSI_OFF}";
