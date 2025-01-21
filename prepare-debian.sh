@@ -114,16 +114,20 @@ if [[ $OS_DETECTION == *"debian"* ]]; then
     echo -e "Distro Detected:                             ${ANSI_GREENLT}Debian${ANSI_OFF}";
   COMPATIBLE_OS=true
 fi;
+if [[ $OS_DETECTION == *"mint"* ]]; then
+	echo -e "Distro Detected:                             ${ANSI_GREENLT}Mint${ANSI_OFF}";
+	COMPATIBLE_OS=true
+fi;
+if [[ $OS_DETECTION == *"antix"* ]]; then
+	echo -e "Distro Detected:                             ${ANSI_GREENLT}antiX${ANSI_OFF}";
+	COMPATIBLE_OS=true
+fi;
 if [[ $OS_DETECTION == *"elxr"* ]]; then
 	echo -e "Distro Detected:                             ${ANSI_GREENLT}eLxr${ANSI_OFF}";
 	COMPATIBLE_OS=true
 fi;
 if [[ $OS_DETECTION == *"ubuntu"* ]]; then
 	echo -e "Distro Detected:                             ${ANSI_GREENLT}Ubuntu${ANSI_OFF}";
-	COMPATIBLE_OS=true
-fi;
-if [[ $OS_DETECTION == *"mint"* ]]; then
-	echo -e "Distro Detected:                             ${ANSI_GREENLT}Mint${ANSI_OFF}";
 	COMPATIBLE_OS=true
 fi;
 if ! [[ $COMPATIBLE_OS == true ]]; then
