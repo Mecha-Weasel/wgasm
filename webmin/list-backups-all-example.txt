@@ -1,13 +1,13 @@
 data
 wgasm
 stencils
-server0hl1
-server1dmc
-server2tfc
-server3tf2
-server4cs1
-server5css
-server6cs2
-server7dod
-server8dods
-server9fof
+server0hl1	Half-Life (HL1)
+server1dmc	Deathmatch Clasic (DMC)
+server2tfc	Team Fotrress Classic (TFC)
+server3tf2	Team Fotresss 2 (TF2)
+server4cs1	Counter-Strike (1.6)
+server5css	Counter-Strike:Source (CS:S)
+server6cs2	Counter-Strike 2 (CS2)
+server7dod	Day of Defeat (DoD)
+server8dods	Day of Defeat:Source (DoD:S)
+server9fof	Fistful of Frags (FoF)
