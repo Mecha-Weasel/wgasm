@@ -4,7 +4,7 @@
 #	Interactively run a game-server, using information from the data-files.
 #	============================================================================
 #	Created:       2024-05-18, by Weasel.SteamID.155@gMail.com	
-#	Last modified: 2024-05-31, by Weasel.SteamID.155@gMail.com
+#	Last modified: 2026-03-04, by Weasel.SteamID.155@gMail.com
 #	----------------------------------------------------------------------------
 #
 #	Purpose:
@@ -137,29 +137,37 @@ case $GAMEENGINE in
 		if [[ $SERVER_LOCAL_IP_ADDRESS ]]; then
         		if [[ $ALLOW_CLOSE_AT_ABEND == true ]]; then
 						GAME_START_COMMAND="nice -n 10 ./hlds_run -game $MODSUBFOLDER -secure -norestart -port $SERVERPORTNUMBER +ip $SERVER_LOCAL_IP_ADDRESS";
+                        #GAME_START_COMMAND="./hlds_run -game $MODSUBFOLDER -secure -norestart -port $SERVERPORTNUMBER +ip $SERVER_LOCAL_IP_ADDRESS";
 					else
 	                    GAME_START_COMMAND="nice -n 10 ./hlds_run -game $MODSUBFOLDER -secure -port $SERVERPORTNUMBER +ip $SERVER_LOCAL_IP_ADDRESS";
+                        #GAME_START_COMMAND="./hlds_run -game $MODSUBFOLDER -secure -port $SERVERPORTNUMBER +ip $SERVER_LOCAL_IP_ADDRESS";
 				fi;
 			else
         		if [[ $ALLOW_CLOSE_AT_ABEND == true ]]; then
 						GAME_START_COMMAND="nice -n 10 ./hlds_run -game $MODSUBFOLDER -secure -norestart -port $SERVERPORTNUMBER";
+                        #GAME_START_COMMAND="./hlds_run -game $MODSUBFOLDER -secure -norestart -port $SERVERPORTNUMBER";
 					else
 	                    GAME_START_COMMAND="nice -n 10 ./hlds_run -game $MODSUBFOLDER -secure -port $SERVERPORTNUMBER";
+                        #GAME_START_COMMAND="./hlds_run -game $MODSUBFOLDER -secure -port $SERVERPORTNUMBER";
 				fi;
 		fi;
 		;;
 	"source")
 		if [[ $SERVER_LOCAL_IP_ADDRESS ]]; then
 				GAME_START_COMMAND="nice -n 10 ./srcds_run -game $MODSUBFOLDER -secure -port $SERVERPORTNUMBER +ip $SERVER_LOCAL_IP_ADDRESS";
+                #GAME_START_COMMAND="./srcds_run -game $MODSUBFOLDER -secure -port $SERVERPORTNUMBER +ip $SERVER_LOCAL_IP_ADDRESS";
 			else
-				GAME_START_COMMAND="nice -n 10 ./srcds_run -game $MODSUBFOLDER -secure -port $SERVERPORTNUMBER";
+            	GAME_START_COMMAND="nice -n 10 ./srcds_run -game $MODSUBFOLDER -secure -port $SERVERPORTNUMBER";
+				#GAME_START_COMMAND="./srcds_run -game $MODSUBFOLDER -secure -port $SERVERPORTNUMBER";
 		fi;
 		;;
 	"src2cs2")
 		if [[ $SERVER_LOCAL_IP_ADDRESS ]]; then
-				GAME_START_COMMAND="nice -n 9 ./game/bin/linuxsteamrt64/cs2 -dedicated -secure -port $SERVERPORTNUMBER +ip $SERVER_LOCAL_IP_ADDRESS -usercon -nodefaultmap -maxplayers 64 +exec autoexec.cfg";
+				GAME_START_COMMAND="nice -n 9 ./game/cs2.sh -dedicated -secure -port $SERVERPORTNUMBER +ip $SERVER_LOCAL_IP_ADDRESS -usercon -nodefaultmap -maxplayers 64 +exec autoexec.cfg";
+                #GAME_START_COMMAND="./game/bin/linuxsteamrt64/cs2 -dedicated -secure -port $SERVERPORTNUMBER +ip $SERVER_LOCAL_IP_ADDRESS -usercon -nodefaultmap -maxplayers 64 +exec autoexec.cfg";
 			else
-				GAME_START_COMMAND="nice -n 9 ./game/bin/linuxsteamrt64/cs2 -dedicated -secure -port $SERVERPORTNUMBER -usercon -nodefaultmap -maxplayers 64 +exec autoexec.cfg";
+				GAME_START_COMMAND="nice -n 9 ./game/cs2.sh -dedicated -secure -port $SERVERPORTNUMBER -usercon -nodefaultmap -maxplayers 64 +exec autoexec.cfg";
+                #GAME_START_COMMAND="./game/bin/linuxsteamrt64/cs2 -dedicated -secure -port $SERVERPORTNUMBER -usercon -nodefaultmap -maxplayers 64 +exec autoexec.cfg";
 		fi;
 		;;
 	*)
