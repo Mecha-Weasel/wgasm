@@ -4,7 +4,7 @@
 #	Interactively run a game-server, using information from the data-files.
 #	============================================================================
 #	Created:       2024-05-18, by Weasel.SteamID.155@gMail.com	
-#	Last modified: 2026-03-04, by Weasel.SteamID.155@gMail.com
+#	Last modified: 2026-09-22, by Weasel.SteamID.155@gMail.com
 #	----------------------------------------------------------------------------
 #
 #	Purpose:
@@ -154,10 +154,10 @@ case $GAMEENGINE in
 		;;
 	"source")
 		if [[ $SERVER_LOCAL_IP_ADDRESS ]]; then
-				GAME_START_COMMAND="nice -n 10 ./srcds_run -game $MODSUBFOLDER -secure -port $SERVERPORTNUMBER +ip $SERVER_LOCAL_IP_ADDRESS";
+				GAME_START_COMMAND="nice -n 10 ./srcds_run_64 -game $MODSUBFOLDER -secure -port $SERVERPORTNUMBER +ip $SERVER_LOCAL_IP_ADDRESS";
                 #GAME_START_COMMAND="./srcds_run -game $MODSUBFOLDER -secure -port $SERVERPORTNUMBER +ip $SERVER_LOCAL_IP_ADDRESS";
 			else
-            	GAME_START_COMMAND="nice -n 10 ./srcds_run -game $MODSUBFOLDER -secure -port $SERVERPORTNUMBER";
+            	GAME_START_COMMAND="nice -n 10 ./srcds_run_64 -game $MODSUBFOLDER -secure -port $SERVERPORTNUMBER";
 				#GAME_START_COMMAND="./srcds_run -game $MODSUBFOLDER -secure -port $SERVERPORTNUMBER";
 		fi;
 		;;
