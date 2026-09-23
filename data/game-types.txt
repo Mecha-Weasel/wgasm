@@ -20,3 +20,4 @@ Field#	Field-Name       Type        Description
 13      warnupdatetext   string      Server-side command to warn players (in text) about an update.
 14      warnupdateaudio  string      Server-side command to warn players (in audio) about an update.
 15      comment	         string      Larger string.
+
