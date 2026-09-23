@@ -4,7 +4,7 @@
 #	Display a list of all defined game-types
 #	============================================================================
 #	Created:       2024-05-18, by Weasel.SteamID.155@gMail.com        
-#	Last modified: 2024-05-27, by Weasel.SteamID.155@gMail.com
+#	Last modified: 2026-09-22, by Weasel.SteamID.155@gMail.com
 #	----------------------------------------------------------------------------
 #
 #	Purpose:
@@ -57,7 +57,7 @@ if [ "$GAMETYPEMATCHCOUNT" -lt "1" ]; then
 		echo -e "==========";
 		echo -e "Record count: $GAMETYPEMATCHCOUNT";
 		echo -e "";
-		cat "$GAME_TYPES_FILE" | cut -f1,2,4,6,8,13,14 | column -t -s $'\t' -o" ";
+		cat "$GAME_TYPES_FILE" | cut -f1,2,3,4,5,6,7,8,9,10 | column -t -s $'\t' -o" ";
 fi;
 #
 #	Display end of stuff ...

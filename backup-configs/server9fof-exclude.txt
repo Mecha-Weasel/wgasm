@@ -6,6 +6,7 @@ server9fof/fof/fof_001.vpk
 server9fof/fof/fof2.vpk.sound.cache
 server9fof/fof/fof_dir.vpk
 server9fof/fof/fof.fgd
+server9fof/fof/fof.publickey.vdf
 server9fof/fof/fof_scripts/ai_editor/3amigos-wave-fof_nest_12_96565.ai
 server9fof/fof/fof_scripts/ai_editor/bank-supply-fof_fistful_96565.ai
 server9fof/fof/fof_scripts/ai_editor/barrels1-supply-fof_nest_12_96565.ai
@@ -186,8 +187,6 @@ server9fof/fof/maps/fof_sweetwater.bsp
 server9fof/fof/maps/fof_sweetwater.nav
 server9fof/fof/maps/fof_tortuga_12.bsp
 server9fof/fof/maps/fof_tortuga_12.nav
-server9fof/fof/maps/fof_tortuga.bsp
-server9fof/fof/maps/fof_tortuga.nav
 server9fof/fof/maps/fof_tramonto_12.bsp
 server9fof/fof/maps/fof_tramonto_12.nav
 server9fof/fof/maps/fof_winterlong.bsp

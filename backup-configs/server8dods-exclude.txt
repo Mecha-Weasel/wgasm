@@ -1,3 +1,4 @@
+server8dods/dod/bin/linux64/server_srv.so
 server8dods/dod/bin/server_srv.so
 server8dods/dod/dod_pak_000.vpk
 server8dods/dod/dod_pak_001.vpk

@@ -1,0 +1,4 @@
+server10tf2c/tf2classified
+*.cfg
+*.txt
+*.ini

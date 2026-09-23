@@ -4,7 +4,7 @@
 #	Base include file for related game-server mangement scripts
 #	============================================================================
 #	Created:       2024-05-19, by Weasel.SteamID.155@gMail.com
-#	Last modified: 2024-06-10, by Weasel.SteamID.155@gMail.com
+#	Last modified: 2026-09-22, by Weasel.SteamID.155@gMail.com
 #	----------------------------------------------------------------------------
 #
 #	USAGE NOTES:
@@ -55,6 +55,7 @@ MORON_DETECTION="$moron_detection";
 MORON_ACKNOWLEDGEMENT="$i_acknowledge_that_i_am_a_moron";
 SCRIPTS_VERBOSE="$scripts_verbose";
 DISPLAY_BANNER="$display_banner";
+NICE_VALUE="$nice_value";
 #
 #	If verbose is on, display progress notification ...
 #
@@ -429,6 +430,7 @@ if [ "$SCRIPTS_VERBOSE" == true ]; then
 	echo -e "Stencils folder:              $STENCILS_FOLDER";
 	echo -e "SteamCMD folder:              $STEAMCMD_FOLDER";
 	echo -e "Default Steam login:          $STEAM_LOGIN_DEFAULT_SHOW";
+    echo -e "Nice Value:                   $NICE_VALUE";
     if [[ $SERVER_LOCAL_IP_ADDRESS ]]; then
 			echo -e "Apparent (local) IP Address:  $SERVER_LOCAL_IP_ADDRESS";
         else

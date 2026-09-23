@@ -4,7 +4,7 @@
 #	Dispaly information about a game-type (long/detailed version)
 #	============================================================================
 #	Created:       2024-05-17, by Weasel.SteamID.155@gMail.com        
-#	Last modified: 2024-05-27, by Weasel.SteamID.155@gMail.com
+#	Last modified: 2026-09-22, by Weasel.SteamID.155@gMail.com
 #	----------------------------------------------------------------------------
 #
 #	Purpose:
@@ -56,6 +56,7 @@ source $SCRIPTS_FOLDER/include/include-gametypefields.inc;
 #
 echo -e "Game-Type Information:";
 echo -e "=====================";
+echo -e "Description (for game-type):   $TYPEDESC";
 echo -e "ID for game-type:              $GAMETYPEID";
 echo -e "Game-Engine:                   $GAMEENGINE";
 echo -e "Steam login (default):         $STEAM_LOGIN_DEFAULT_SHOW";
@@ -65,12 +66,12 @@ echo -e "AppID (for installation):      $APPIDINSTALL";
 echo -e "AppID (for update check):      $APPIDCHECK";
 echo -e "SteamCMD mod-type (if any):    $STEAMCMDMOD";
 echo -e "SteamCMD (extra) options:      $STEAMCMDOPTS";
+echo -e "Alternate Start Script:        $ALTSTARTSCRIPT";
 echo -e "Mod Sub-Folder:                $MODSUBFOLDER";
 echo -e "Restart warning (text):        $WARNSTOPTEXT";
 echo -e "Restart warning (audio):       $WARNSTOPAUDIO";
 echo -e "Update warning (text):         $WARNUPDATETEXT";
 echo -e "Update warning (audio):        $WARNUPDATEAUDIO";
-echo -e "Description (for game-type):   $TYPEDESC";
 echo -e "Comments (for game-type):      $TYPECOMMENT";
 #
 #	Find game-server records matching game-type ...

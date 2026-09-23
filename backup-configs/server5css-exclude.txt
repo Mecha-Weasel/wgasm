@@ -1,3 +1,4 @@
+server5css/cstrike/bin/linux64/server_srv.so
 server5css/cstrike/bin/server_srv.so
 server5css/cstrike/cstrike_pak_000.vpk
 server5css/cstrike/cstrike_pak_001.vpk

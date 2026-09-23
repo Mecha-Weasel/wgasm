@@ -4,7 +4,7 @@
 #	Include file for retrieving game-type information for a GAMETYPEID
 #	============================================================================
 #	Created:       2024-05-19, by Weasel.SteamID.155@gMail.com        
-#	Last modified: 2024-05-27, by Weasel.SteamID.155@gMail.com
+#	Last modified: 2026-09-22, by Weasel.SteamID.155@gMail.com
 #	----------------------------------------------------------------------------
 #
 #	USAGE NOTES:
@@ -73,12 +73,13 @@ APPIDCHECK=$(awk -v GAMETYPEID="$GAMETYPEID" '$1 == GAMETYPEID' "$GAME_TYPES_FIL
 STEAMCMDMOD=$(awk -v GAMETYPEID="$GAMETYPEID" '$1 == GAMETYPEID' "$GAME_TYPES_FILE" | head -n 1 | cut -f6);
 STEAMCMDOPTS=$(awk -v GAMETYPEID="$GAMETYPEID" '$1 == GAMETYPEID' "$GAME_TYPES_FILE" | head -n 1 | cut -f7);
 MODSUBFOLDER=$(awk -v GAMETYPEID="$GAMETYPEID" '$1 == GAMETYPEID' "$GAME_TYPES_FILE" | head -n 1 | cut -f8);
-WARNSTOPTEXT=$(awk -v GAMETYPEID="$GAMETYPEID" '$1 == GAMETYPEID' "$GAME_TYPES_FILE" | head -n 1 | cut -f9);
-WARNSTOPAUDIO=$(awk -v GAMETYPEID="$GAMETYPEID" '$1 == GAMETYPEID' "$GAME_TYPES_FILE" | head -n 1 | cut -f10);
-WARNUPDATETEXT=$(awk -v GAMETYPEID="$GAMETYPEID" '$1 == GAMETYPEID' "$GAME_TYPES_FILE" | head -n 1 | cut -f11);
-WARNUPDATEAUDIO=$(awk -v GAMETYPEID="$GAMETYPEID" '$1 == GAMETYPEID' "$GAME_TYPES_FILE" | head -n 1 | cut -f12);
-TYPEDESC=$(awk -v GAMETYPEID="$GAMETYPEID" '$1 == GAMETYPEID' "$GAME_TYPES_FILE" | head -n 1 | cut -f13);
-TYPECOMMENT=$(awk -v GAMETYPEID="$GAMETYPEID" '$1 == GAMETYPEID' "$GAME_TYPES_FILE" | head -n 1 | cut -f14);
+ALTSTARTSCRIPT=$(awk -v GAMETYPEID="$GAMETYPEID" '$1 == GAMETYPEID' "$GAME_TYPES_FILE" | head -n 1 | cut -f9);
+TYPEDESC=$(awk -v GAMETYPEID="$GAMETYPEID" '$1 == GAMETYPEID' "$GAME_TYPES_FILE" | head -n 1 | cut -f10);
+WARNSTOPTEXT=$(awk -v GAMETYPEID="$GAMETYPEID" '$1 == GAMETYPEID' "$GAME_TYPES_FILE" | head -n 1 | cut -f11);
+WARNSTOPAUDIO=$(awk -v GAMETYPEID="$GAMETYPEID" '$1 == GAMETYPEID' "$GAME_TYPES_FILE" | head -n 1 | cut -f12);
+WARNUPDATETEXT=$(awk -v GAMETYPEID="$GAMETYPEID" '$1 == GAMETYPEID' "$GAME_TYPES_FILE" | head -n 1 | cut -f13);
+WARNUPDATEAUDIO=$(awk -v GAMETYPEID="$GAMETYPEID" '$1 == GAMETYPEID' "$GAME_TYPES_FILE" | head -n 1 | cut -f14);
+TYPECOMMENT=$(awk -v GAMETYPEID="$GAMETYPEID" '$1 == GAMETYPEID' "$GAME_TYPES_FILE" | head -n 1 | cut -f15);
 #
 #		Validate the Steam login ...
 #
@@ -130,6 +131,7 @@ fi;
 if [ "$SCRIPTS_VERBOSE" == true ]; then
 	echo -e "Game-Type Information:";
 	echo -e "=====================";
+    echo -e "Description (for game-type):   $TYPEDESC";
 	echo -e "ID for game-type:              $GAMETYPEID";
 	echo -e "Game-Engine:                   $GAMEENGINE";
 	echo -e "Steam login (default):         $STEAM_LOGIN_DEFAULT_SHOW";
@@ -139,12 +141,12 @@ if [ "$SCRIPTS_VERBOSE" == true ]; then
 	echo -e "AppID (for update check):      $APPIDCHECK";
 	echo -e "SteamCMD mod-type (if any):    $STEAMCMDMOD";
 	echo -e "SteamCMD (extra) options:      $STEAMCMDOPTS";
+    echo -e "Alternate Start Script:        $ALTSTARTSCRIPT";
 	echo -e "Mod Sub-Folder:                $MODSUBFOLDER";
 	echo -e "Restart warning (text):        $WARNSTOPTEXT";
 	echo -e "Restart warning (audio):       $WARNSTOPAUDIO";
 	echo -e "Update warning (text):         $WARNUPDATETEXT";
 	echo -e "Update warning (audio):        $WARNUPDATEAUDIO";
-	echo -e "Description (for game-type):   $TYPEDESC";
 	echo -e "Comments (for game-type):      $TYPECOMMENT";
 fi;
 #

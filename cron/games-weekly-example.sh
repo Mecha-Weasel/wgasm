@@ -4,7 +4,7 @@
 #	Games-related scheduled maintenance: WEEKLY
 #	============================================================================
 #	Created:       2024-03-06, by Weasel.SteamID.155@gMail.com        
-#	Last modified: 2024-06-04, by Weasel.SteamID.155@gMail.com
+#	Last modified: 2026-09-23, by Weasel.SteamID.155@gMail.com
 #	----------------------------------------------------------------------------
 #
 #	Purpose:
@@ -35,6 +35,7 @@ $HOME/wgasm/game-server-stop.sh server6cs2;  # Uncomment the BEGINNING of this l
 $HOME/wgasm/game-server-stop.sh server7dod;  # Uncomment the BEGINNING of this line to enable stop of this server.
 $HOME/wgasm/game-server-stop.sh server8dods; # Uncomment the BEGINNING of this line to enable stop of this server.
 $HOME/wgasm/game-server-stop.sh server9fof;  # Uncomment the BEGINNING of this line to enable stop of this server.
+$HOME/wgasm/game-server-stop.sh server10tf2c;  # Uncomment the BEGINNING of this line to enable stop of this server.
 #
 #		Purge some old logs ...
 #
@@ -61,6 +62,7 @@ $HOME/wgasm/game-server-backup.sh data;
 #$HOME/wgasm/game-server-backup.sh server7dod;  # Uncomment the BEGINNING of this line to enable backup of this server.
 #$HOME/wgasm/game-server-backup.sh server8dods; # Uncomment the BEGINNING of this line to enable backup of this server.
 #$HOME/wgasm/game-server-backup.sh server9fof;  # Uncomment the BEGINNING of this line to enable backup of this server.
+#$HOME/wgasm/game-server-backup.sh server10tf2c;  # Uncomment the BEGINNING of this line to enable backup of this server.
 #
 #		Start (or restart) all game-servers, sequencially ...
 #
@@ -74,6 +76,7 @@ $HOME/wgasm/game-server-backup.sh data;
 #$HOME/wgasm/game-server-start.sh server7dod;  # Uncomment the BEGINNING of this line to enable restart of this server.
 #$HOME/wgasm/game-server-start.sh server8dods; # Uncomment the BEGINNING of this line to enable restart of this server.
 #$HOME/wgasm/game-server-start.sh server9fof;  # Uncomment the BEGINNING of this line to enable restart of this server.
+#$HOME/wgasm/game-server-start.sh server10tf2c;  # Uncomment the BEGINNING of this line to enable restart of this server.
 #
 #		Log running game-server processes ...
 #

@@ -4,7 +4,7 @@
 #	Interactively run a game-server, using information from the data-files.
 #	============================================================================
 #	Created:       2024-05-18, by Weasel.SteamID.155@gMail.com	
-#	Last modified: 2026-09-22, by Weasel.SteamID.155@gMail.com
+#	Last modified: 2026-03-04, by Weasel.SteamID.155@gMail.com
 #	----------------------------------------------------------------------------
 #
 #	Purpose:
@@ -39,6 +39,20 @@
 #	to be detected.  A side effect, is that since the game-server process will
 #	be terminated by the "monitor" script, logging by the server will be cut-off
 #	preventing the completion of the "-run.log" file.
+#	
+#	Adding the "-norestart" option to the command-line for launching HLDS would
+#	allow the game-server process to close normally after an abnormal ending,
+#	and subsequently allow the related "-run.log" file to be updated normally.
+#	However, doing so prevents the "monitor" scripts from detecting the failure
+#	condition.
+#	
+#	The option to include the "-norestart" option at game-server start will be
+#	controlled by the $ALLOW_CLOSE_AT_ABEND option below, which might be useful
+#	for troubleshooting. The default behavior will be for "-norestart" to not be
+#	enabled - to allow successful "monitor" script functions.
+#	
+#ALLOW_CLOSE_AT_ABEND=true
+ALLOW_CLOSE_AT_ABEND=false
 #	
 #	----------------------------------------------------------------------------
 #	
@@ -118,112 +132,58 @@ fi;
 #
 #	Generate command to run the game-server ...
 #
-#		Start with blank ...
-#
-GAME_START_COMMAND="";
-#
-#	Figure-out which start script/executable to use ...
-#
 case $GAMEENGINE in
 	"goldsrc")
-		#
-		#	If GoldSrc engine ...
-		#
-		if [[ $ALTSTARTSCRIPT ]]; then
-				#
-				#	If an alternative start script is specified, use it ...
-				#
-				GAME_START_COMMAND="$ALTSTARTSCRIPT";
+		if [[ $SERVER_LOCAL_IP_ADDRESS ]]; then
+        		if [[ $ALLOW_CLOSE_AT_ABEND == true ]]; then
+						GAME_START_COMMAND="nice -n 10 ./hlds_run -game $MODSUBFOLDER -secure -norestart -port $SERVERPORTNUMBER +ip $SERVER_LOCAL_IP_ADDRESS";
+                        #GAME_START_COMMAND="./hlds_run -game $MODSUBFOLDER -secure -norestart -port $SERVERPORTNUMBER +ip $SERVER_LOCAL_IP_ADDRESS";
+					else
+	                    GAME_START_COMMAND="nice -n 10 ./hlds_run -game $MODSUBFOLDER -secure -port $SERVERPORTNUMBER +ip $SERVER_LOCAL_IP_ADDRESS";
+                        #GAME_START_COMMAND="./hlds_run -game $MODSUBFOLDER -secure -port $SERVERPORTNUMBER +ip $SERVER_LOCAL_IP_ADDRESS";
+				fi;
 			else
-				#
-				#	otherwise, use hlds_run ...
-				#
-				GAME_START_COMMAND="./hlds_run";
+        		if [[ $ALLOW_CLOSE_AT_ABEND == true ]]; then
+						GAME_START_COMMAND="nice -n 10 ./hlds_run -game $MODSUBFOLDER -secure -norestart -port $SERVERPORTNUMBER";
+                        #GAME_START_COMMAND="./hlds_run -game $MODSUBFOLDER -secure -norestart -port $SERVERPORTNUMBER";
+					else
+	                    GAME_START_COMMAND="nice -n 10 ./hlds_run -game $MODSUBFOLDER -secure -port $SERVERPORTNUMBER";
+                        #GAME_START_COMMAND="./hlds_run -game $MODSUBFOLDER -secure -port $SERVERPORTNUMBER";
+				fi;
 		fi;
-		#
-		#	Add the other parameters ...
-		#
-		GAME_START_COMMAND="$GAME_START_COMMAND -game $MODSUBFOLDER -port $SERVERPORTNUMBER";
 		;;
 	"source")
-		#
-		#	If Source engine ...
-		#
-		if [[ $ALTSTARTSCRIPT ]]; then
-				#
-				#	If an alternative start script is specified, use it ...
-				#
-				GAME_START_COMMAND="$ALTSTARTSCRIPT";
+		if [[ $SERVER_LOCAL_IP_ADDRESS ]]; then
+				GAME_START_COMMAND="nice -n 10 ./srcds_run -game $MODSUBFOLDER -secure -port $SERVERPORTNUMBER +ip $SERVER_LOCAL_IP_ADDRESS";
+                #GAME_START_COMMAND="./srcds_run -game $MODSUBFOLDER -secure -port $SERVERPORTNUMBER +ip $SERVER_LOCAL_IP_ADDRESS";
 			else
-				#
-				#	otherwise, use srcds_run ...
-				#
-				GAME_START_COMMAND="../srcds_run";
+            	GAME_START_COMMAND="nice -n 10 ./srcds_run -game $MODSUBFOLDER -secure -port $SERVERPORTNUMBER";
+				#GAME_START_COMMAND="./srcds_run -game $MODSUBFOLDER -secure -port $SERVERPORTNUMBER";
 		fi;
-		#
-		#	Add the other parameters ...
-		#
-		GAME_START_COMMAND="$GAME_START_COMMAND -game $MODSUBFOLDER -port $SERVERPORTNUMBER";
 		;;
 	"src2cs2")
-		#
-		#	If CS2's Source2 variant', use game/cs2.sh ...
-		#
-		if [[ $ALTSTARTSCRIPT ]]; then
-				#
-				#	If an alternative start script is specified, use it ...
-				#
-				GAME_START_COMMAND="$ALTSTARTSCRIPT";
+		if [[ $SERVER_LOCAL_IP_ADDRESS ]]; then
+				GAME_START_COMMAND="nice -n 9 ./game/cs2.sh -dedicated -secure -port $SERVERPORTNUMBER +ip $SERVER_LOCAL_IP_ADDRESS -usercon -nodefaultmap -maxplayers 64 +exec autoexec.cfg";
+                #GAME_START_COMMAND="./game/bin/linuxsteamrt64/cs2 -dedicated -secure -port $SERVERPORTNUMBER +ip $SERVER_LOCAL_IP_ADDRESS -usercon -nodefaultmap -maxplayers 64 +exec autoexec.cfg";
 			else
-				#
-				#	otherwise, use srcds_run ...
-				#
-				GAME_START_COMMAND="../game/cs2.sh -dedicated";
+				GAME_START_COMMAND="nice -n 9 ./game/cs2.sh -dedicated -secure -port $SERVERPORTNUMBER -usercon -nodefaultmap -maxplayers 64 +exec autoexec.cfg";
+                #GAME_START_COMMAND="./game/bin/linuxsteamrt64/cs2 -dedicated -secure -port $SERVERPORTNUMBER -usercon -nodefaultmap -maxplayers 64 +exec autoexec.cfg";
 		fi;
-		#
-		#	Add the other parameters ...
-		#
-		GAME_START_COMMAND="$GAME_START_COMMAND -game $MODSUBFOLDER -port $SERVERPORTNUMBER";
 		;;
 	*)
-		#
-		#	Throw error if no engine match found ...
-		#
 		MESSAGE="${ANSI_REDLT}$(figlet "Error:")${ANSI_OFF}\n";
 		MESSAGE+="${ANSI_YELLOW}Unsupported or unspecified game-engine: ${ANSI_WHITE}$GAMEENGINE${ANSI_OFF}";
 		echo -e "$MESSAGE";
 		if [[ $SCRIPT_LOG_FILE ]]; then
 			echo -e "$MESSAGE" | ansi2txt >> "$SCRIPT_LOG_FILE";
 		fi;
-	    #
+        #
 		#	Display end of stuff ...
 		#
 		source $SCRIPTS_FOLDER/include/include-outputend.inc;
 		exit 1;
 		;;
 esac;
-#
-#	Set local server IP address, if specified ..
-#
-if [[ $SERVER_LOCAL_IP_ADDRESS ]]; then
-	GAME_START_COMMAND="$GAME_START_COMMAND +ip $SERVER_LOCAL_IP_ADDRESS";
-fi;
-#
-#	Set additional start-up options, if specified ..
-#
-if [[ $SERVERSTARTOPTS ]]; then
-	GAME_START_COMMAND="$GAME_START_COMMAND $SERVERSTARTOPTS";
-fi;
-#
-#	Set NICE value, if specified ..
-#
-if [[ $NICE_VALUE ]]; then
-	GAME_START_COMMAND="$NICE_VALUE $GAME_START_COMMAND";
-fi;
-#
-#	Put an ending semicolon on the end of the command ..
-#
-GAME_START_COMMAND="$GAME_START_COMMAND;";
 #
 #	Display and log some extra stuff ...
 #

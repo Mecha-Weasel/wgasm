@@ -77,4 +77,3 @@ game_stencils_file=game-stencils.tsv
 banner_file=banner.txt
 steam_login="anonymous"
 nice_value="nice -n 10"
-

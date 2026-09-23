@@ -4,7 +4,7 @@
 #	Games-related scheduled maintenance: OFTEN (about every 10-20 minutes)
 #	============================================================================
 #	Created:       2024-04-06, by Weasel.SteamID.155@gMail.com        
-#	Last modified: 2024-06-04, by Weasel.SteamID.155@gMail.com
+#	Last modified: 2026-09-23, by Weasel.SteamID.155@gMail.com
 #	----------------------------------------------------------------------------
 #
 #	Purpose:
@@ -37,6 +37,7 @@
 #$HOME/wgasm/game-server-monitor.sh server7dod;  # Uncomment the BEGINNING of this line to enable monitoring of this server.
 #$HOME/wgasm/game-server-monitor.sh server8dods; # Uncomment the BEGINNING of this line to enable monitoring of this server.
 #$HOME/wgasm/game-server-monitor.sh server9fof;  # Uncomment the BEGINNING of this line to enable monitoring of this server.
+#$HOME/wgasm/game-server-monitor.sh server910tf2c;  # Uncomment the BEGINNING of this line to enable monitoring of this server.
 #
 #		Log running game-server processes ...
 #

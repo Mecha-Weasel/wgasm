@@ -4,7 +4,7 @@
 #	Games-related scheduled maintenance: HOURLY
 #	============================================================================
 #	Created:       2024-03-08, by Weasel.SteamID.155@gMail.com        
-#	Last modified: 2024-06-04, by Weasel.SteamID.155@gMail.com
+#	Last modified: 2026-09-23, by Weasel.SteamID.155@gMail.com
 #	----------------------------------------------------------------------------
 #
 #	Purpose:
@@ -37,6 +37,7 @@
 #$HOME/wgasm/game-server-check.sh server7dod;  # Uncomment the BEGINNING of this line to enable check of this server.
 #$HOME/wgasm/game-server-check.sh server8dods; # Uncomment the BEGINNING of this line to enable check of this server.
 #$HOME/wgasm/game-server-check.sh server9fof;  # Uncomment the BEGINNING of this line to enable check of this server.
+#$HOME/wgasm/game-server-check.sh server10tf2c;  # Uncomment the BEGINNING of this line to enable check of this server.
 #
 #		Log running game-server processes ...
 #

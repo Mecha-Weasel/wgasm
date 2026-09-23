@@ -4,7 +4,7 @@
 #	Display a list of all defined game-servers
 #	============================================================================
 #	Created:       2024-05-18, by Weasel.SteamID.155@gMail.com        
-#	Last modified: 2024-05-27, by Weasel.SteamID.155@gMail.com
+#	Last modified: 2026-09-22, by Weasel.SteamID.155@gMail.com
 #	----------------------------------------------------------------------------
 #
 #	Purpose:
@@ -57,7 +57,7 @@ if [ "$GAMESERVERMATCHCOUNT" -lt "1" ]; then
 		echo "============";
 		echo "Record count: $GAMESERVERMATCHCOUNT";
 		echo "";
-        cat "$GAME_SERVERS_FILE" | cut -f1-7 | column -t -s $'\t' -o" ";
+        cat "$GAME_SERVERS_FILE" | cut -f1-8 | column -t -s $'\t' -o" ";
 fi;
 #
 #	Display end of stuff ...

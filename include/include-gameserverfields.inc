@@ -4,7 +4,7 @@
 #	Include file for retrieving game-server information for a GAMESERVERID
 #	============================================================================
 #	Created:       2024-05-19, by Weasel.SteamID.155@gMail.com        
-#	Last modified: 2024-05-27, by Weasel.SteamID.155@gMail.com
+#	Last modified: 2026-09-22, by Weasel.SteamID.155@gMail.com
 #	----------------------------------------------------------------------------
 #
 #	USAGE NOTES:
@@ -71,8 +71,9 @@ SERVERPORTNUMBER=$(awk -v GAMESERVERID="$GAMESERVERID" '$1 == GAMESERVERID' "$GA
 SERVERVERBOSE=$(awk -v GAMESERVERID="$GAMESERVERID" '$1 == GAMESERVERID' "$GAME_SERVERS_FILE" | head -n 1 | cut -f4);
 SERVERSTALE=$(awk -v GAMESERVERID="$GAMESERVERID" '$1 == GAMESERVERID' "$GAME_SERVERS_FILE" | head -n 1 | cut -f5);
 SERVERTHRESHOLD=$(awk -v GAMESERVERID="$GAMESERVERID" '$1 == GAMESERVERID' "$GAME_SERVERS_FILE" | head -n 1 | cut -f6);
-SERVERDESC=$(awk -v GAMESERVERID="$GAMESERVERID" '$1 == GAMESERVERID' "$GAME_SERVERS_FILE" | head -n 1 | cut -f7);
-SERVERCOMMENT=$(awk -v GAMESERVERID="$GAMESERVERID" '$1 == GAMESERVERID' "$GAME_SERVERS_FILE" | head -n 1 | cut -f8);
+SERVERSTARTOPTS=$(awk -v GAMESERVERID="$GAMESERVERID" '$1 == GAMESERVERID' "$GAME_SERVERS_FILE" | head -n 1 | cut -f7);
+SERVERDESC=$(awk -v GAMESERVERID="$GAMESERVERID" '$1 == GAMESERVERID' "$GAME_SERVERS_FILE" | head -n 1 | cut -f8);
+SERVERCOMMENT=$(awk -v GAMESERVERID="$GAMESERVERID" '$1 == GAMESERVERID' "$GAME_SERVERS_FILE" | head -n 1 | cut -f9);
 #
 #	Set verbose option to true if it is set for server ..
 #
@@ -85,13 +86,14 @@ fi;
 if [ "$SCRIPTS_VERBOSE" == true ]; then
 	echo "Game-Server Information:";
 	echo "=======================";
+    echo "Description (server):                     $SERVERDESC";
 	echo "ID for game-server:                       $GAMESERVERID";
 	echo "ID for game-type:                         $GAMETYPEID";
 	echo "Game-server port number:                  $SERVERPORTNUMBER";
 	echo "Use verbose output?:                      $SERVERVERBOSE";
 	echo "Monitor for stale (GNU screen) logging?:  $SERVERSTALE";
 	echo "Monitoring threshold (in seconds):        $SERVERTHRESHOLD";
-	echo "Description (server):                     $SERVERDESC";
+	echo "Extra Start Options:                      $SERVERSTARTOPTS";
 	echo "Comment (server):                         $SERVERCOMMENT";
 fi;
 #
