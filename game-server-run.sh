@@ -4,7 +4,7 @@
 #	Interactively run a game-server, using information from the data-files.
 #	============================================================================
 #	Created:       2024-05-18, by Weasel.SteamID.155@gMail.com	
-#	Last modified: 2026-09-22, by Weasel.SteamID.155@gMail.com
+#	Last modified: 2026-09-23, by Weasel.SteamID.155@gMail.com
 #	----------------------------------------------------------------------------
 #
 #	Purpose:
@@ -158,7 +158,7 @@ case $GAMEENGINE in
 				#
 				#	otherwise, use srcds_run ...
 				#
-				GAME_START_COMMAND="../srcds_run";
+				GAME_START_COMMAND="./srcds_run";
 		fi;
 		#
 		#	Add the other parameters ...
